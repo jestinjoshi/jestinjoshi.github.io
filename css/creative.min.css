@@ -56,7 +56,7 @@ h6 {
 }
 
 section {
-    padding: 8rem 0
+    padding: 4rem 0
 }
 
 .section-heading {
@@ -183,7 +183,8 @@ header.masthead {
     padding-bottom: calc(10rem - 56px);
     background-image: url(../img/header.jpg);
     background-position: center center;
-    background-size: cover
+    background-size: cover;
+    height: 100vh;
 }
 
 header.masthead hr {
@@ -207,7 +208,6 @@ header.masthead p {
 
 @media (min-width:992px) {
     header.masthead {
-        height: 100vh;
         min-height: 650px;
         padding-top: 0;
         padding-bottom: 0
