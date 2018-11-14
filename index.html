@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-
+    <!-- SEO -->
     <meta name="Content-Type" content="text/html" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Jestin Joshi's Personal Website. He is a software and web developer hailing from Navi Mumbai, Inida. Learn more about him...">
     <meta name="keywords" content="jestin, jestin joshi, jestin joshi palamuttam, jestinjoshi@gmail.com, jestin developer">
     <meta name="author" content="Jestin Joshi">
-
 
     <title>Jestin Joshi | Personal Website</title>
     <link rel="icon" href="./favicon.png">
@@ -35,6 +34,16 @@
 
     <!-- Custom styles for this template -->
     <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129176992-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129176992-1');
+    </script>
 
 </head>
 
@@ -186,7 +195,7 @@
                         </a>
                     </p>
                 </div>
-                
+
                 <div class="col-lg-2 col-md-4 col-6 mb-3 text-center">
                     <p>
                         <a target="_blank" href="http://www.linkedin.com/in/jestinjoshi">
@@ -243,6 +252,21 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+
+    <!-- Firebase Integration -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAQQnkd7zF8IZB0s7Z7ZvptwTr8rVpLOz4",
+            authDomain: "personal-website-5b980.firebaseapp.com",
+            databaseURL: "https://personal-website-5b980.firebaseio.com",
+            projectId: "personal-website-5b980",
+            storageBucket: "personal-website-5b980.appspot.com",
+            messagingSenderId: "823684158922"
+        };
+        firebase.initializeApp(config);
+    </script>
 
 </body>
 
