@@ -10,8 +10,8 @@ if (isGithubActions) {
 }
 
 const nextConfig = {
-    assetPrefix: `/${repo}/`,
-    basePath: `/${repo}`
+    assetPrefix: assetPrefix,
+    basePath: basePath
 };
 
 module.exports = nextConfig
