@@ -1,0 +1,96 @@
+@keyframes shapeAnimation {
+  0%,
+  19% {
+    clip-path: polygon(50% 0%,39% 24%,0% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%,100% 100%)
+  }
+  20%,
+  39% {
+    clip-path: polygon(100% 0%,0% 0%,0% 100%,100% 100%,100% 0%,100% 0%,100% 0%,100% 0%,100% 0%,100% 0%)
+  }
+  40%,
+  59% {
+    clip-path: polygon(50% 0%,0% 50%,25% 100%,75% 100%,100% 50%,100% 50%,100% 50%,100% 50%,100% 50%,100% 50%)
+  }
+  60%,
+  79% {
+    clip-path: polygon(50% 0%,0% 25%,0% 75%,50% 100%,100% 75%,100% 75%,100% 25%,100% 25%,100% 25%,100% 25%)
+  }
+  100% {
+    clip-path: polygon(50% 0%,39% 24%,29% 46%,14% 74%,0 100%,50% 100%,100% 100%,86% 74%,72% 45%,61% 24%)
+  }
+}
+@keyframes colorAnimation {
+  0%,
+  19% {
+    background: #090979;
+    background: linear-gradient(90deg,#090979 35%,#00d4ff 100%)
+  }
+  20%,
+  39% {
+    background: #590000;
+    background: linear-gradient(90deg,#590000 0,#fc466b 90%)
+  }
+  40%,
+  59% {
+    background: #8322c4;
+    background: linear-gradient(90deg,#8322c4 35%,#5145fc 100%)
+  }
+  60%,
+  79% {
+    background: #2e005e;
+    background: linear-gradient(90deg,#2e005e 0,red 100%)
+  }
+  80%,
+  99% {
+    background: #03005e;
+    background: linear-gradient(90deg,#03005e 25%,#34ff00 100%)
+  }
+}
+@keyframes bgAnimation {
+  0%,
+  19% {
+    background: #090979;
+    background: linear-gradient(90deg,#090979 -10%,#000 30%,#000 70%,#090979 110%)
+  }
+  20%,
+  39% {
+    background: #590000;
+    background: linear-gradient(90deg,#590000 -10%,#000 30%,#000 70%,#590000 110%)
+  }
+  40%,
+  59% {
+	background: rgb(131,34,196);
+	background: linear-gradient(90deg, rgba(131,34,196,1) -30%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(131,34,196,1) 130%);
+  }
+  60%,
+  79% {
+    background: #2e005e;
+    background: linear-gradient(90deg,#2e005e 0,#000 30%,#000 70%,#2e005e 100%)
+  }
+  100%,
+  80% {
+    background: #03005e;
+    background: linear-gradient(90deg,#03005e 0,#000 30%,#000 70%,#03005e 100%)
+  }
+}
+@keyframes rotateAnimation {
+  from {
+    rotate: 0deg
+  }
+  to {
+    rotate: 360deg
+  }
+}
+#shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 200px;
+  height: 200px;
+  background-color: #00f;
+  animation: 20s linear infinite shapeAnimation,40s linear infinite rotateAnimation,20s linear infinite colorAnimation
+}
+main{
+	z-index: 2;
+}
