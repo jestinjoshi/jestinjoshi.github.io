@@ -78,7 +78,7 @@ export default function Experience() {
                             <div className="experience-title">
                                 <span className="experience-role mr-1">{e.position}</span>
                                 <span className="sep mr-1">|</span>
-                                <a href={e.companyWebsite} className="experience-company hover:underline">{e.company}</a>
+                                <a href={e.companyWebsite} target="_blank" className="experience-company hover:underline">{e.company}</a>
                             </div>
                             <p className="experience-duration">{e.startDate} - {e.endDate}</p>
                             <ul className="experience-description">
