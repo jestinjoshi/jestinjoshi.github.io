@@ -1,5 +1,7 @@
+import Contact from './components/Contact'
 import Education from './components/Education'
 import Experience from './components/Experience'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Intro from './components/Intro'
 import Portfolio from './components/Portfolio'
@@ -15,7 +17,9 @@ export default function Home() {
         <Experience></Experience>
         <Education></Education>
         <Portfolio></Portfolio>
+        <Contact></Contact>
       </main>
+      <Footer></Footer>
     </>
   )
 }
