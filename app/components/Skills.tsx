@@ -1,7 +1,7 @@
 export default function Skills() {
     return (
         <section id="skills" className="py-10">
-            <div className="container mx-auto">
+            <div className="container px-4 mx-auto">
                 <h2 className="text-3xl section-title">Skills</h2>
                 <div className="skill-type-wrap">
                     <div className="skill-type">

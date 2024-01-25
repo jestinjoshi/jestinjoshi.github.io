@@ -10,7 +10,7 @@ export default function Contact() {
 
     return (
         <section id="contact" className="py-10">
-            <div className="container mx-auto">
+            <div className="container px-4 mx-auto">
                 <h2 className="text-3xl section-heading mb-10">Contact</h2>
                 <div className="contact-wrap">
                     <form onSubmit={handleSubmit} action="dialog">

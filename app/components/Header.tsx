@@ -3,11 +3,11 @@ export default function Header() {
 
     return (
         <header className="py-10">
-            <div className="container mx-auto">
+            <div className="container px-4 mx-auto">
                 <div className="logo-menu-wrap flex justify-between items-center">
                     <h1 className="logo text-2xl"><strong>Jestin</strong> Palamuttam</h1>
 
-                    <nav className="header-menu">
+                    <nav className="header-menu hidden sm:block">
                         <ul className="flex">
                             {menu.map(m =>
                                 <li key={m} className="px-3 capitalize">

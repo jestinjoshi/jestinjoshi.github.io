@@ -59,8 +59,8 @@
   }
   40%,
   59% {
-	background: rgb(131,34,196);
-	background: linear-gradient(90deg, rgba(131,34,196,1) -30%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(131,34,196,1) 130%);
+    background: #8322c4;
+    background: linear-gradient(90deg,#8322c4 -30%,#000 30%,#000 70%,#8322c4 130%)
   }
   60%,
   79% {
@@ -81,6 +81,20 @@
     rotate: 360deg
   }
 }
+@keyframes blink {
+  0% {
+    opacity: 1
+  }
+  40% {
+    opacity: 1
+  }
+  60% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}
 #shape {
   position: absolute;
   top: 50%;
@@ -91,6 +105,15 @@
   background-color: #00f;
   animation: 20s linear infinite shapeAnimation,40s linear infinite rotateAnimation,20s linear infinite colorAnimation
 }
-main{
-	z-index: 2;
+main {
+  z-index: 2
+}
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 48px;
+  background-color: #fff;
+  animation: blink .6s linear infinite alternate;
+  position: relative;
+  top: 2px;
 }

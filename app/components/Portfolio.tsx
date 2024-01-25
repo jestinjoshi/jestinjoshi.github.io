@@ -34,7 +34,7 @@ export default function Portfolio() {
 
     return (
         <section id="portfolio" className="py-10">
-            <div className="container mx-auto">
+            <div className="container px-4 mx-auto">
                 <h2 className="text-3xl section-heading mb-10">Portfolio</h2>
                 <div className="portfolio-wrap">
                     {portfolio.map(e =>

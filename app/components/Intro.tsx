@@ -21,6 +21,7 @@ let helloArray = [
 let i = 0;
 let j = 0;
 let deleting = false;
+let pause = 100;
 
 export default function Intro() {
     const [greeting, setGreeting] = useState('');
@@ -30,9 +31,11 @@ export default function Intro() {
             setGreeting(helloArray[i].substring(0, j));
             if (helloArray[i].length === j) {
                 deleting = true;
+                pause = 2000;
             }
             j++;
         } else {
+            pause = 100;
             setGreeting(helloArray[i].substring(-1, j - 2));
             j--;
             if (j === 1) {
@@ -46,19 +49,19 @@ export default function Intro() {
     };
 
     useEffect(() => {
-        setTimeout(handleTyping, 100)
+        setTimeout(handleTyping, pause);
     }, [greeting]);
 
     return (
         <section id="about" className="py-10">
-            <div className="container mx-auto">
-                <div className="flex justify-center gap-10">
-                    <div className="avatar-wrap relative w-[300px]">
-                        <Image className="relative z-10 rounded-full" alt="Avatar" width={300} height={300} src={avatar}></Image>
+            <div className="container px-4 mx-auto">
+                <div className="flex justify-center gap-10 flex-wrap">
+                    <div className="avatar-wrap relative w-full sm:w-[300px]">
+                        <Image className="relative z-10 rounded-full mx-auto" alt="Avatar" width={300} height={300} src={avatar}></Image>
                         <div id="shape"></div>
                     </div>
                     <div className="about flex-1">
-                        <h1 className="text-5xl mb-5">{greeting.length ? `${greeting},` : ''} I'm Jestin</h1>
+                        <h1 className="text-5xl mb-5">{greeting.length ? greeting : ''}<span className="cursor"></span>, I'm Jestin</h1>
                         <p className="text-base">I am a frontend web developer with a track record of {Math.abs(2018 - new Date().getFullYear())}+ years in developing websites across diverse categories, including blogs, e-commerce, dashboards, and static sites. I love solving complex problems with cutting-edge web technologies and collaborating with talented teams. I like implementing challenging UI interactions and components.</p>
 
                         <p className="text-base">I am always eager to learn new skills and explore new challenges. Currently, I'm keen on delving into backend technologies, continuous integration and continuous deployment (CI/CD), and database development.</p>
