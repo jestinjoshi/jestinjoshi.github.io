@@ -9,9 +9,11 @@ export default function Header() {
 
                     <nav className="header-menu">
                         <ul className="flex">
-                            {menu.map(m => <li key={m} className="px-3 capitalize">
-                                <a href={`#${m}`}>{m}</a>
-                            </li>)}
+                            {menu.map(m =>
+                                <li key={m} className="px-3 capitalize">
+                                    <a href={`#${m}`}>{m}</a>
+                                </li>
+                            )}
                         </ul>
                     </nav>
 

@@ -74,7 +74,7 @@ export default function Experience() {
                 <h2 className="text-3xl section-heading mb-10">Experience</h2>
                 <div className="experience-wrap">
                     {experience.map(e =>
-                        <div className="experience mb-10">
+                        <div key={e.startDate} className="experience mb-10">
                             <div className="experience-title">
                                 <span className="experience-role mr-1">{e.position}</span>
                                 <span className="sep mr-1">|</span>
@@ -82,8 +82,8 @@ export default function Experience() {
                             </div>
                             <p className="experience-duration">{e.startDate} - {e.endDate}</p>
                             <ul className="experience-description">
-                                {e.responsibilities.map(r =>
-                                    <li className="experience-bullets">{r}</li>
+                                {e.responsibilities.map((r, i) =>
+                                    <li key={i} className="experience-bullets">{r}</li>
                                 )}
                             </ul>
                         </div>

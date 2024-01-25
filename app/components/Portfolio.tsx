@@ -38,7 +38,7 @@ export default function Portfolio() {
                 <h2 className="text-3xl section-heading mb-10">Portfolio</h2>
                 <div className="portfolio-wrap">
                     {portfolio.map(e =>
-                        <div className="portfolio mb-10">
+                        <div key={e.link} className="portfolio mb-10">
                             <div className="portfolio-title">
                                 <a href={e.link} target="_blank" className="portfolio-company hover:underline">{e.name}</a>
                             </div>
