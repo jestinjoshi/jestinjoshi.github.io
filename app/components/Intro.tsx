@@ -61,10 +61,10 @@ export default function Intro() {
                         <div id="shape"></div>
                     </div>
                     <div className="about flex-1">
-                        <h1 className="text-5xl mb-5">{greeting.length ? greeting : ''}<span className="cursor"></span>, I'm Jestin</h1>
+                        <h1 className="text-5xl mb-5">{greeting.length ? greeting : ''}<span className="cursor"></span>, I&apos;m Jestin</h1>
                         <p className="text-base">I am a frontend web developer with a track record of {Math.abs(2018 - new Date().getFullYear())}+ years in developing websites across diverse categories, including blogs, e-commerce, dashboards, and static sites. I love solving complex problems with cutting-edge web technologies and collaborating with talented teams. I like implementing challenging UI interactions and components.</p>
 
-                        <p className="text-base">I am always eager to learn new skills and explore new challenges. Currently, I'm keen on delving into backend technologies, continuous integration and continuous deployment (CI/CD), and database development.</p>
+                        <p className="text-base">I am always eager to learn new skills and explore new challenges. Currently, I&apos;m keen on delving into backend technologies, continuous integration and continuous deployment (CI/CD), and database development.</p>
 
                         <p className="text-base">If you want to connect with me or learn more about my work, feel free to reach out to me on LinkedIn or drop me an email. I look forward to hearing from you!</p>
                     </div>
