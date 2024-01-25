@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,7 +17,8 @@
 }
 body {
   color: rgb(var(--foreground-rgb));
-  animation: 20s linear infinite bgAnimation
+  animation: 20s linear infinite bgAnimation;
+  font-family: 'Poppins', sans-serif;
 }
 html {
   scroll-behavior: smooth

@@ -24,7 +24,7 @@ let deleting = false;
 let pause = 100;
 
 export default function Intro() {
-    const [greeting, setGreeting] = useState('');
+    const [greeting, setGreeting] = useState(' ');
 
     const handleTyping = () => {
         if (helloArray[i].length >= j && !deleting) {
@@ -50,7 +50,10 @@ export default function Intro() {
     };
 
     useEffect(() => {
-        setTimeout(handleTyping, pause);
+        const id = setTimeout(handleTyping, pause);
+        return () => {
+            clearTimeout(id)
+        };
     }, [greeting]);
 
     return (
@@ -58,7 +61,7 @@ export default function Intro() {
             <div className="container px-4 mx-auto">
                 <div className="flex justify-center gap-10 flex-wrap">
                     <div className="avatar-wrap relative w-full sm:w-[300px]">
-                        <Image className="relative z-10 rounded-full mx-auto" alt="Avatar" width={300} height={300} src={avatar}></Image>
+                        <Image priority className="relative z-10 rounded-full mx-auto" alt="Avatar" width={300} height={300} src={avatar}></Image>
                         <div id="shape"></div>
                     </div>
                     <div className="about flex-1">

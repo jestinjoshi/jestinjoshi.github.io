@@ -100,8 +100,8 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background-color: #00f;
   animation: 20s linear infinite shapeAnimation,40s linear infinite rotateAnimation,20s linear infinite colorAnimation
 }
