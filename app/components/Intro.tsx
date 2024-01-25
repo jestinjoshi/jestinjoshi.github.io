@@ -28,6 +28,7 @@ export default function Intro() {
 
     const handleTyping = () => {
         if (helloArray[i].length >= j && !deleting) {
+            pause = 100;
             setGreeting(helloArray[i].substring(0, j));
             if (helloArray[i].length === j) {
                 deleting = true;
@@ -35,7 +36,7 @@ export default function Intro() {
             }
             j++;
         } else {
-            pause = 100;
+            pause = 25;
             setGreeting(helloArray[i].substring(-1, j - 2));
             j--;
             if (j === 1) {
