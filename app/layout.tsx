@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary",
     creator: "@jestinjoshi"
+  },
+  verification: {
+    google: "I3mkVwBHNX9HGBRlqfDzXzYZ33drz0Ah-s5uSaGOTTY"
   }
 }
 
