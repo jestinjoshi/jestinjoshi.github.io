@@ -23,7 +23,7 @@ export default function Experience() {
         {
             position: "Software Developer",
             company: "EDAS Tech",
-            companyWebsite: "https://www.edas.tech/",
+            companyWebsite: "https://edas.tech/",
             linkedIn: "https://www.linkedin.com/company/edastech/",
             location: "Mumbai",
             startDate: "Feb 2021",
@@ -57,7 +57,7 @@ export default function Experience() {
         {
             position: "Software Development Trainee",
             company: "VSPL",
-            companyWebsite: "http://www.vedanshis.com/",
+            companyWebsite: "https://www.vedanshis.com/",
             linkedIn: "https://www.linkedin.com/company/vedanshisysteminc/",
             location: "Mumbai",
             startDate: "June 2018",
@@ -81,8 +81,8 @@ export default function Experience() {
                                 <div className="experience-title text-xl">
                                     <span className="experience-role mr-1">{e.position}</span>
                                     <span className="sep mr-1">|</span>
-                                    <a href={e.companyWebsite} target="_blank" className="experience-company hover:underline mr-1">{e.company}</a>
-                                    <a href={e.linkedIn} target="_blank" className="inline-block align-middle relative bottom-0.5">
+                                    <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company hover:underline mr-1">{e.company}</a>
+                                    <a href={e.linkedIn} title={`Linkedin Page of ${e.company}`} target="_blank" rel="noopener noreferrer" className="inline-block align-middle relative bottom-0.5">
                                         <svg className="w-6 h-6 text-gray-800 dark:text-white border border-solid rounded border-transparent hover:border-current transition-all duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
                                             <path fillRule="evenodd" d="M12.5 8.8v1.7a3.7 3.7 0 0 1 3.3-1.7c3.5 0 4.2 2.2 4.2 5v5.7h-3.2v-5c0-1.3-.2-2.8-2.1-2.8-1.9 0-2.2 1.3-2.2 2.6v5.2H9.3V8.8h3.2ZM7.2 6.1a1.6 1.6 0 0 1-2 1.6 1.6 1.6 0 0 1-1-2.2A1.6 1.6 0 0 1 6.6 5c.3.3.5.7.5 1.1Z" clipRule="evenodd" />
                                             <path d="M7.2 8.8H4v10.7h3.2V8.8Z" />

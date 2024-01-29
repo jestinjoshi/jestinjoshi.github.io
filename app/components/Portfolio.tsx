@@ -1,33 +1,33 @@
 export default function Portfolio() {
     const portfolio = [
         {
-            name: 'Forstar Engineers',
-            link: 'https://forstarengineers.com',
-            description: ''
-        },
-        {
-            name: 'Online Lottery Picker (Frontend)',
-            link: 'https://online-lottery-23667.web.app/lottery',
-            description: '',
-        },
-        {
-            name: 'Online Lottery Seller (Backend)',
-            link: 'https://online-lottery-23667.web.app/',
-            description: '',
-        },
-        {
-            name: 'Online Quiz',
-            link: 'https://vue-assignment-virid.vercel.app/',
-            description: '',
-        },
-        {
             name: 'Meet Participants Checlist',
             link: 'https://chrome.google.com/webstore/detail/meet-participants-checkli/oomekahllchgbndfpgjjggokkcjginmn',
-            description: '',
+            description: 'A Chrome extension that adds a checkbox next to each Google Meet participant',
         },
         {
             name: 'Master Builder',
             link: 'https://github.com/jestinjoshi/master-builder',
+            description: 'An Electron App to execute builds on an internal project with multiple configs simultaneously',
+        },
+        {
+            name: 'Forstar Engineers',
+            link: 'https://forstarengineers.com',
+            description: 'A website for a local business that I developed as a freelancer.'
+        },
+        {
+            name: 'Online Lottery Picker (Frontend)',
+            link: 'https://online-lottery-23667.web.app/lottery',
+            description: 'A website for a raffle event of a local church. This was a pro bono work',
+        },
+        {
+            name: 'Online Lottery Seller (Backend)',
+            link: 'https://online-lottery-23667.web.app/',
+            description: 'A website for a raffle event of a local church. This was a pro bono work',
+        },
+        {
+            name: 'Online Quiz',
+            link: 'https://vue-assignment-virid.vercel.app/',
             description: '',
         },
     ];
@@ -40,9 +40,11 @@ export default function Portfolio() {
                     {portfolio.map(e =>
                         <div key={e.link} className="portfolio mb-10">
                             <div className="portfolio-title">
-                                <a href={e.link} target="_blank" className="portfolio-company hover:underline">{e.name}</a>
+                                <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                                    <p className="project-name">{e.name}</p>
+                                </a>
+                                <p className="portfolio-description">{e.description}</p>
                             </div>
-                            <p className="portfolio-description">{e.description}</p>
                         </div>
                     )}
                 </div>

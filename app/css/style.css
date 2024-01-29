@@ -104,7 +104,7 @@
   width: 250px;
   height: 250px;
   background-color: #00f;
-  animation: 20s linear infinite alternate shapeAnimation,40s linear infinite rotateAnimation,20s linear infinite colorAnimation
+  animation: 20s linear infinite alternate shapeAnimation,40s linear infinite rotateAnimation,20s linear infinite alternate colorAnimation
 }
 main {
   z-index: 2

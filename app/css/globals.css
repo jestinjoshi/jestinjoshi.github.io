@@ -17,7 +17,7 @@
 }
 body {
   color: rgb(var(--foreground-rgb));
-  animation: 20s linear infinite bgAnimation;
+  animation: 20s linear infinite alternate bgAnimation;
   font-family: 'Poppins', sans-serif;
 }
 html {
