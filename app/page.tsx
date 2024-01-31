@@ -1,3 +1,5 @@
+"use client"
+import { MouseEventHandler, useRef } from 'react'
 import Contact from './components/Contact'
 import Education from './components/Education'
 import Experience from './components/Experience'
@@ -8,10 +10,12 @@ import Portfolio from './components/Portfolio'
 import Skills from './components/Skills'
 
 export default function Home() {
+  const mainRef = useRef(null as HTMLElement | null);
+
   return (
     <>
-      <Header></Header>
-      <main>
+      <Header mainRef={mainRef}></Header>
+      <main ref={mainRef}>
         <Intro></Intro>
         <Skills></Skills>
         <Experience></Experience>

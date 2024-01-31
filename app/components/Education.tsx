@@ -13,7 +13,7 @@ export default function Education() {
                             </div>
                             <p className="education-duration italic">July 2014 - Oct 2017</p>
                         </div>
-                        <p className="education-description">A comprehensive undergraduate program specializing in Information Technology, equipping me with a strong foundation in programming, software development, and IT concepts. Gained practical experience through real-world projects, fostering the ability to apply theoretical knowledge in practical settings. Developed industry-relevant skills and knowledge to excel in IT roles.</p>
+                        <p className="education-description text-justify">A comprehensive undergraduate program specializing in Information Technology, equipping me with a strong foundation in programming, software development, and IT concepts. Gained practical experience through real-world projects, fostering the ability to apply theoretical knowledge in practical settings. Developed industry-relevant skills and knowledge to excel in IT roles.</p>
                     </div>
                 </div>
             </div>

@@ -44,34 +44,34 @@
   80%,
   100% {
     background: #03005e;
-    background: linear-gradient(90deg,#03005e 25%,#34ff00 100%)
+    background: linear-gradient(90deg,#03005e 25%,#00fbff 100%)
   }
 }
 @keyframes bgAnimation {
   0%,
   19% {
     background: #090979;
-    background: linear-gradient(90deg,#090979 -10%,#000 30%,#000 70%,#090979 110%)
+    background: linear-gradient(90deg,#090979 -10%,#020218 10%,#020218 90%,#090979 110%)
   }
   20%,
   39% {
     background: #590000;
-    background: linear-gradient(90deg,#590000 -10%,#000 30%,#000 70%,#590000 110%)
+    background: linear-gradient(90deg,#590000 -10%,#120000 10%,#120000 90%,#590000 110%)
   }
   40%,
   59% {
     background: #8322c4;
-    background: linear-gradient(90deg,#8322c4 -30%,#000 30%,#000 70%,#8322c4 130%)
+    background: linear-gradient(90deg,#8322c4 -30%,#0d0314 10%,#0d0314 90%,#8322c4 130%)
   }
   60%,
   79% {
     background: #2e005e;
-    background: linear-gradient(90deg,#2e005e 0,#000 30%,#000 70%,#2e005e 100%)
+    background: linear-gradient(90deg,#2e005e 0,#090013 10%,#090013 90%,#2e005e 100%)
   }
   100%,
   80% {
     background: #03005e;
-    background: linear-gradient(90deg,#03005e 0,#000 30%,#000 70%,#03005e 100%)
+    background: linear-gradient(90deg,#03005e 0,#010013 10%,#010013 90%,#03005e 100%)
   }
 }
 @keyframes rotateAnimation {
@@ -118,6 +118,27 @@ main {
   position: relative;
   top: 2px
 }
-.send{
+.send, .resume{
   animation: 20s linear infinite colorAnimation;
+}
+.section-heading{
+  text-decoration: underline;
+}
+.header::after, .footer::before{
+  content: '';
+  display: block;
+  height: 11px;
+  width: calc(100% - 40px);
+  max-width: 1024px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 0;
+  box-shadow: 0 5px 12px -5px rgb(255 255 255 / 85%);
+}
+
+.footer::before{
+  bottom: auto;
+  top: 0;
+  box-shadow: 0 -5px 12px -5px rgb(255 255 255 / 85%);
 }

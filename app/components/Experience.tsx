@@ -93,7 +93,7 @@ export default function Experience() {
                             </div>
                             <ul className="experience-description list-disc pl-5">
                                 {e.responsibilities.map((r, i) =>
-                                    <li key={i} className="experience-bullets mb-1">{r}</li>
+                                    <li key={i} className="experience-bullets mb-1 text-justify">{r}</li>
                                 )}
                             </ul>
                         </div>

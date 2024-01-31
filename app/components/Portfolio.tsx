@@ -28,7 +28,7 @@ export default function Portfolio() {
         {
             name: 'Online Quiz',
             link: 'https://vue-assignment-virid.vercel.app/',
-            description: '',
+            description: 'A website that fetches data from a public quiz API and asks you 10 questions and gives out result',
         },
     ];
 
@@ -36,9 +36,9 @@ export default function Portfolio() {
         <section id="portfolio" className="py-10">
             <div className="custom-container px-4 mx-auto">
                 <h2 className="text-3xl section-heading mb-10">Portfolio</h2>
-                <div className="portfolio-wrap">
+                <div className="portfolio-wrap grid grid-cols-2 gap-10">
                     {portfolio.map(e =>
-                        <div key={e.link} className="portfolio mb-10">
+                        <div key={e.link} className="portfolio">
                             <div className="portfolio-title">
                                 <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     <p className="project-name">{e.name}</p>
