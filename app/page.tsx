@@ -10,7 +10,7 @@ import Portfolio from './components/Portfolio'
 import Skills from './components/Skills'
 
 export default function Home() {
-  const mainRef = useRef(null as HTMLElement | null);
+  const mainRef = useRef(null);
 
   return (
     <>

@@ -1,17 +1,25 @@
-import { useRef } from "react";
+import React, { MouseEventHandler, useRef } from "react";
 
-export default function Header({ mainRef }) {
+interface HeaderProps {
+    mainRef: React.RefObject<HTMLDivElement>;
+}
+
+const Header: React.FC<HeaderProps> = ({ mainRef }) => {
     const menu = ["about", "skills", "experience", "education", "portfolio", "contact"];
 
-    const headerRef = useRef(null);
+    const headerRef = useRef<HTMLElement>(null);
 
-    const handleHashClick: MouseEventHandler = e => {
+    const handleHashClick: MouseEventHandler<HTMLAnchorElement> = e => {
         e.preventDefault();
         const href = e.currentTarget.getAttribute('href');
-        const offsetTop = mainRef?.current?.querySelector(href).offsetTop - headerRef.current.offsetHeight;
-        window.scroll({
-            top: offsetTop
-        })
+        const targetElement = mainRef?.current?.querySelector(href || '') as HTMLElement;
+
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop - (headerRef.current?.offsetHeight || 0);
+            window.scroll({
+                top: offsetTop
+            })
+        }
     }
 
     return (
@@ -41,3 +49,5 @@ export default function Header({ mainRef }) {
         </header>
     )
 }
+
+export default Header;
