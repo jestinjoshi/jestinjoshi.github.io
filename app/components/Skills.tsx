@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import { fadeIn, initialFadeUp } from "../animations";
+
 export default function Skills() {
     const skills = [
         {
@@ -19,18 +22,18 @@ export default function Skills() {
     ]
 
     return (
-        <section id="skills" className="py-10">
+        <motion.section initial={initialFadeUp} whileInView={fadeIn(1.5)} viewport={{ once: true }} id="skills" className="py-10">
             <div className="custom-container px-4 mx-auto">
-                <h2 className="text-3xl section-heading mb-10">Skills</h2>
+                <h2 className="text-4xl section-heading mb-10 gradient-text">Skills</h2>
                 <div className="skill-type-wrap grid grid-cols-2 gap-10">
                     {skills.map(({ skillCategory, skills }) =>
-                        <div className="skill-type" key={skillCategory}>
-                            <p className="skill-type-heading text-xl">{skillCategory}</p>
+                        <div className="skill-type glass p-6 rounded-lg backdrop-blur" key={skillCategory}>
+                            <p className="skill-type-heading text-xl mb-2">{skillCategory}</p>
                             <p className="skills">{skills}</p>
                         </div>
                     )}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

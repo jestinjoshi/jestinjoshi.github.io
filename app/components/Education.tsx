@@ -1,8 +1,11 @@
+import { motion } from "framer-motion"
+import { fadeIn, initialFadeUp } from "../animations"
+
 export default function Education() {
     return (
-        <section id="education" className="py-10">
+        <motion.section initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="education" className="py-10">
             <div className="custom-container px-4 mx-auto">
-                <h2 className="text-3xl section-heading mb-10">Education</h2>
+                <h2 className="text-3xl section-heading mb-10 gradient-text">Education</h2>
                 <div className="education-wrap">
                     <div className="education mb-10">
                         <div className="flex flex-col sm:flex-row justify-between items-center mb-2">
@@ -17,6 +20,6 @@ export default function Education() {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

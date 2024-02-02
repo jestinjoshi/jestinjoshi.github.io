@@ -1,3 +1,7 @@
+import { motion } from "framer-motion";
+import { fadeIn, initialFadeUp } from "../animations";
+import { useRef } from "react";
+
 export default function Portfolio() {
     const portfolio = [
         {
@@ -32,23 +36,25 @@ export default function Portfolio() {
         },
     ];
 
+    const scrollRef = useRef(null)
+
     return (
-        <section id="portfolio" className="py-10">
+        <motion.section ref={scrollRef} id="portfolio" className="py-10" initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }}>
             <div className="custom-container px-4 mx-auto">
-                <h2 className="text-3xl section-heading mb-10">Portfolio</h2>
+                <h2 className="text-3xl section-heading mb-10 gradient-text">Portfolio</h2>
                 <div className="portfolio-wrap grid grid-cols-2 gap-10">
-                    {portfolio.map(e =>
-                        <div key={e.link} className="portfolio">
+                    {portfolio.map((e, i) =>
+                        <motion.div key={e.link} className="portfolio glass rounded-lg p-6" initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
                             <div className="portfolio-title">
                                 <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                     <p className="project-name">{e.name}</p>
                                 </a>
                                 <p className="portfolio-description">{e.description}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

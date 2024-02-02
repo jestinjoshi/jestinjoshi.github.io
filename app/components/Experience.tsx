@@ -1,3 +1,7 @@
+import { motion } from "framer-motion";
+import { fadeIn, initialFadeUp } from "../animations";
+import { useRef } from "react";
+
 export default function Experience() {
     const experience = [
         {
@@ -70,13 +74,15 @@ export default function Experience() {
         }
     ];
 
+    const scrollRef = useRef(null);
+
     return (
-        <section id="experience" className="py-10">
+        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="experience" className="py-10">
             <div className="custom-container px-4 mx-auto">
-                <h2 className="text-3xl section-heading mb-10">Experience</h2>
+                <h2 className="text-3xl section-heading mb-10 gradient-text">Experience</h2>
                 <div className="experience-wrap">
-                    {experience.map(e =>
-                        <div key={e.startDate} className="experience mb-10">
+                    {experience.map((e, i) =>
+                        <motion.div key={e.startDate} className="experience mb-10" initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
                             <div className="flex flex-col sm:flex-row justify-between mb-2 items-center">
                                 <div className="experience-title text-xl">
                                     <span className="experience-role mr-1">{e.position}</span>
@@ -93,13 +99,13 @@ export default function Experience() {
                             </div>
                             <ul className="experience-description list-disc pl-5">
                                 {e.responsibilities.map((r, i) =>
-                                    <li key={i} className="experience-bullets mb-1 text-justify">{r}</li>
+                                    <li key={i} className="experience-bullets mb-2 text-justify">{r}</li>
                                 )}
                             </ul>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }
