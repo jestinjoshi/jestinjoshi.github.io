@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeIn, initialFadeUp } from "../animations";
+import { useRef } from "react";
 
 export default function Skills() {
     const skills = [
@@ -21,16 +22,18 @@ export default function Skills() {
         }
     ]
 
+    const scrollRef = useRef(null)
+
     return (
-        <motion.section initial={initialFadeUp} whileInView={fadeIn(1.5)} viewport={{ once: true }} id="skills" className="py-10">
+        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(1.5)} viewport={{ once: true }} id="skills" className="py-10">
             <div className="custom-container px-4 mx-auto">
                 <h2 className="text-4xl section-heading mb-10 gradient-text">Skills</h2>
                 <div className="skill-type-wrap grid grid-cols-2 gap-10">
-                    {skills.map(({ skillCategory, skills }) =>
-                        <div className="skill-type glass p-6 rounded-lg backdrop-blur" key={skillCategory}>
+                    {skills.map(({ skillCategory, skills }, i) =>
+                        <motion.div initial={initialFadeUp} whileInView={fadeIn(1.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }} className="skill-type glass p-6 rounded-lg backdrop-blur" key={skillCategory}>
                             <p className="skill-type-heading text-xl mb-2">{skillCategory}</p>
                             <p className="skills">{skills}</p>
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </div>
