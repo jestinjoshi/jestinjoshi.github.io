@@ -33,7 +33,7 @@ export default function Contact() {
     const scrollRef = useRef(null);
 
     return (
-        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="contact" className="py-10">
+        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="contact" className="py-5 sm:py-10">
             <div className="custom-container px-5 mx-auto">
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Contact</h2>
                 <div className="contact-wrap">

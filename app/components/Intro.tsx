@@ -66,7 +66,7 @@ export default function Intro() {
     }
 
     return (
-        <section id="about" className="py-10">
+        <section id="about" className="py-5 sm:py-10">
             <div className="custom-container px-5 mx-auto">
                 <div className="flex justify-center gap-5 sm:gap-20 flex-wrap items-center">
                     <motion.div initial={{ ...initialFadeUp }} animate={{ ...fadeIn(0.5) }} className="avatar-wrap relative w-full lg:w-[300px]">

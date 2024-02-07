@@ -25,7 +25,7 @@ export default function Skills() {
     const scrollRef = useRef(null)
 
     return (
-        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(1.5)} viewport={{ once: true }} id="skills" className="py-10">
+        <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(1.5)} viewport={{ once: true }} id="skills" className="py-5 sm:py-10">
             <div className="custom-container px-5 mx-auto">
                 <h2 className="text-4xl section-heading mb-10 gradient-text">Skills</h2>
                 <div className="skill-type-wrap grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-10">
