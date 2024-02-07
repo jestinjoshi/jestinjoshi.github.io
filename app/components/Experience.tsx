@@ -79,25 +79,27 @@ export default function Experience() {
 
     return (
         <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="experience" className="py-10">
-            <div className="custom-container px-4 mx-auto">
+            <div className="custom-container px-5 mx-auto">
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Experience</h2>
                 <div className="experience-wrap">
                     {experience.map((e, i) =>
-                        <motion.div onClick={() => setExpanded(i === expanded ? false : i)} key={e.startDate} className="experience mb-10 glass glass-hover rounded-lg p-6 cursor-pointer" initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
-                            <div className={`flex flex-col sm:flex-row justify-between transition-all ${expanded === i && 'mb-2'} items-center`}>
+                        <motion.div onClick={() => setExpanded(i === expanded ? false : i)} key={e.startDate} className="experience mb-5 lg:mb-10 glass glass-hover rounded-lg p-6 cursor-pointer" initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
+                            <div className="flex flex-col sm:flex-row justify-between transition-all sm:items-center gap-5 sm:gap-0">
                                 <div className="experience-title text-xl">
                                     <div className="flex items-center">
-                                        <motion.svg animate={{rotate: i === expanded ? 180 : 0}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-chevron-down inline-block mr-2"><polyline points="6 9 12 15 18 9"/></motion.svg>
-                                        <div>
+                                        <motion.svg animate={{rotate: i === expanded ? 180 : 0}} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down inline-block mr-2"><polyline points="6 9 12 15 18 9"/></motion.svg>
+                                        <div className="flex flex-col lg:flex-row">
                                             <span className="experience-role mr-1">{e.position}</span>
-                                            <span className="sep mr-1">|</span>
-                                            <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company hover:underline mr-1">{e.company}</a>
-                                            <a href={e.linkedIn} title={`Linkedin Page of ${e.company}`} target="_blank" rel="noopener noreferrer" className="inline-block align-middle relative bottom-0.5">
-                                                <svg className="w-6 h-6 text-gray-800 dark:text-white border border-solid rounded border-transparent hover:border-current transition-all duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path fillRule="evenodd" d="M12.5 8.8v1.7a3.7 3.7 0 0 1 3.3-1.7c3.5 0 4.2 2.2 4.2 5v5.7h-3.2v-5c0-1.3-.2-2.8-2.1-2.8-1.9 0-2.2 1.3-2.2 2.6v5.2H9.3V8.8h3.2ZM7.2 6.1a1.6 1.6 0 0 1-2 1.6 1.6 1.6 0 0 1-1-2.2A1.6 1.6 0 0 1 6.6 5c.3.3.5.7.5 1.1Z" clipRule="evenodd" />
-                                                    <path d="M7.2 8.8H4v10.7h3.2V8.8Z" />
-                                                </svg>
-                                            </a>
+                                            <span className="sep mr-1 hidden lg:inline"> | </span>
+                                            <div>
+                                                <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company hover:underline mr-2">{e.company}</a>
+                                                <a href={e.linkedIn} title={`Linkedin Page of ${e.company}`} target="_blank" rel="noopener noreferrer" className="inline-block align-middle relative bottom-0.5 hidden sm:block">
+                                                    <svg className="w-6 h-6 text-gray-800 dark:text-white border border-solid rounded border-transparent hover:border-current transition-all duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path fillRule="evenodd" d="M12.5 8.8v1.7a3.7 3.7 0 0 1 3.3-1.7c3.5 0 4.2 2.2 4.2 5v5.7h-3.2v-5c0-1.3-.2-2.8-2.1-2.8-1.9 0-2.2 1.3-2.2 2.6v5.2H9.3V8.8h3.2ZM7.2 6.1a1.6 1.6 0 0 1-2 1.6 1.6 1.6 0 0 1-1-2.2A1.6 1.6 0 0 1 6.6 5c.3.3.5.7.5 1.1Z" clipRule="evenodd" />
+                                                        <path d="M7.2 8.8H4v10.7h3.2V8.8Z" />
+                                                    </svg>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -115,7 +117,7 @@ export default function Experience() {
                                             collapsed: { opacity: 0, height: 0 }
                                         }}
                                         transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-                                        className="experience-description list-disc pl-5">
+                                        className="experience-description list-disc pl-5 mt-5">
                                         {e.responsibilities.map((r, i) =>
                                             <li key={i} className="experience-bullets mb-2 text-justify">{r}</li>
                                         )}

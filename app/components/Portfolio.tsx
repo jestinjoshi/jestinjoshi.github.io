@@ -40,9 +40,9 @@ export default function Portfolio() {
 
     return (
         <motion.section ref={scrollRef} id="portfolio" className="py-10" initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }}>
-            <div className="custom-container px-4 mx-auto">
+            <div className="custom-container px-5 mx-auto">
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Portfolio</h2>
-                <div className="portfolio-wrap grid grid-cols-2 gap-10">
+                <div className="portfolio-wrap grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-10">
                     {portfolio.map((e, i) =>
                         <motion.div key={e.link} className="portfolio glass rounded-lg p-6" initial={initialFadeUp} whileInView={fadeIn(i * 0.2)} viewport={{ once: true }}>
                             <div className="portfolio-title">
