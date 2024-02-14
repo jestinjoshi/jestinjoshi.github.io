@@ -29,7 +29,7 @@ const jsonLd = {
   "@type": "Person",
   "name": "Jestin Palamuttam",
   "url": "https://jestinjoshi.github.io/",
-  "image": "https://jestinjoshi.github.io/_next/static/media/avatar.ff573f76.png",
+  "image": "https://jestinjoshi.github.io/img/avatar.webp",
   "sameAs": [
     "https://www.linkedin.com/in/jestinjoshi",
     "https://github.com/jestinjoshi",

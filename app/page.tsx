@@ -1,5 +1,6 @@
 "use client"
-import { MouseEventHandler, useRef } from 'react'
+
+import { useRef } from 'react'
 import Contact from './components/Contact'
 import Education from './components/Education'
 import Experience from './components/Experience'
