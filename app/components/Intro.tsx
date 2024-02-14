@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import avatar from '../img/avatar.png';
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { fadeIn, initialFadeUp } from "../animations";
@@ -70,7 +69,7 @@ export default function Intro() {
             <div className="custom-container px-5 mx-auto">
                 <div className="flex justify-center gap-5 sm:gap-20 flex-wrap items-center">
                     <motion.div initial={{ ...initialFadeUp }} animate={{ ...fadeIn(0.5) }} className="avatar-wrap relative w-full lg:w-[300px]">
-                        <Image priority className="relative z-10 rounded-full mx-auto backdrop-blur-sm" alt="Avatar" width={300} height={300} src={avatar}></Image>
+                        <Image priority className="relative z-10 rounded-full mx-auto backdrop-blur-sm" alt="Avatar" width={300} height={300} src="/img/avatar.webp"></Image>
                         <div id="shape"></div>
                     </motion.div>
                     <div className="about flex-1 text-center lg:text-left">
