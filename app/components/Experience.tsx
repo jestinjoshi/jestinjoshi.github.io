@@ -110,15 +110,16 @@ export default function Experience() {
                                 {
                                     i === expanded &&
                                     <motion.ul
+                                        layout
                                         initial="collapsed"
                                         animate="open"
                                         exit="collapsed"
                                         variants={{
-                                            open: { opacity: 1, height: "auto" },
-                                            collapsed: { opacity: 0, height: 0 }
+                                            open: { opacity: 1, height: "auto", marginTop: 20 },
+                                            collapsed: { opacity: 0, height: 0, marginTop: 0 }
                                         }}
                                         transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-                                        className="experience-description list-disc pl-5 mt-5">
+                                        className="experience-description list-disc pl-5">
                                         {e.responsibilities.map((r, i) =>
                                             <li key={i} className="experience-bullets mb-2 text-justify">{r}</li>
                                         )}

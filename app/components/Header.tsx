@@ -6,6 +6,8 @@ interface HeaderProps {
     mainRef: React.RefObject<HTMLDivElement>;
 }
 
+let initialHighlightOffset = 40;
+
 const Header: React.FC<HeaderProps> = ({ mainRef }) => {
     const menu = ["about", "skills", "experience", "education", "portfolio", "contact"];
 
@@ -23,20 +25,19 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
                 top: offsetTop
             })
         }
-
-        highlightSection(e.currentTarget as Element);
     }
 
     const highlightSection = (target: Element) => {
         if (target) {
             const width = target.getBoundingClientRect().width;
             const left = target.getBoundingClientRect().left;
-            const top = target.getBoundingClientRect().top + 25;
+            const top = target.getBoundingClientRect().top + 25 + initialHighlightOffset;
             setTargetStyle({
                 width,
                 left,
                 top
             })
+            initialHighlightOffset = 0;
         }
     }
 
@@ -62,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
 
         window.addEventListener('resize', () => {
             const target = headerRef.current?.querySelector(`a[href="#about"]`);
-            if(target){
+            if (target) {
                 highlightSection(target)
             }
         })
@@ -82,9 +83,9 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
                         </svg>
                     </motion.a>
                     <nav className="header-menu hidden sm:block">
-                        <motion.ul animate="hidden" className="flex">
+                        <motion.ul animate="hidden" className="flex gap-6">
                             {menu.map((m, i) =>
-                                <motion.li key={m} className="px-3 capitalize" animate={fadeIn(0.5 + i * 0.3)} custom={i} initial={initialFadeDown}>
+                                <motion.li key={m} className="capitalize" animate={fadeIn(0.5 + i * 0.3)} initial={initialFadeDown}>
                                     <a className="hover:opacity-75" onClick={handleHashClick} href={`#${m}`}>{m}</a>
                                 </motion.li>
                             )}

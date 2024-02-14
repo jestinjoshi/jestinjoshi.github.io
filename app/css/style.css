@@ -1,23 +1,23 @@
 @keyframes shapeAnimation {
   0%,
   18% {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%, 0% 50%);
+    clip-path: polygon(50% 0%,100% 50%,50% 100%,0% 50%,0% 50%,0% 50%,0% 50%,0% 50%,0% 50%)
   }
   20%,
   38% {
-    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%, 0% 38%, 0% 38%, 0% 38%, 0% 38%);
+    clip-path: polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%,0% 38%,0% 38%,0% 38%,0% 38%)
   }
   40%,
   58% {
-    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%, 10% 20%, 10% 20%)
+    clip-path: polygon(50% 0%,90% 20%,100% 60%,75% 100%,25% 100%,0% 60%,10% 20%,10% 20%,10% 20%)
   }
   60%,
   78% {
-    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%, 0% 30%)
+    clip-path: polygon(30% 0%,70% 0%,100% 30%,100% 70%,70% 100%,30% 100%,0% 70%,0% 30%,0% 30%)
   }
-  80%,
-  100% {
-    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%)
+  100%,
+  80% {
+    clip-path: polygon(50% 0%,83% 12%,100% 43%,94% 78%,68% 100%,32% 100%,6% 78%,0% 43%,17% 12%)
   }
 }
 @keyframes colorAnimation {
@@ -41,37 +41,10 @@
     background-color: #2e005e;
     background-image: linear-gradient(90deg,#2e005e 0,red 100%)
   }
-  80%,
-  100% {
-    background-color: #03005e;
-    background-image: linear-gradient(90deg,#03005e 25%,#00fbff 100%)
-  }
-}
-@keyframes bgAnimation {
-  0%,
-  19% {
-    background: #090979;
-    background: linear-gradient(90deg,#090979 -10%,#020218 10%,#020218 90%,#090979 110%)
-  }
-  20%,
-  39% {
-    background: #590000;
-    background: linear-gradient(90deg,#590000 -10%,#120000 10%,#120000 90%,#590000 110%)
-  }
-  40%,
-  59% {
-    background: #8322c4;
-    background: linear-gradient(90deg,#8322c4 -30%,#0d0314 10%,#0d0314 90%,#8322c4 130%)
-  }
-  60%,
-  79% {
-    background: #2e005e;
-    background: linear-gradient(90deg,#2e005e 0,#090013 10%,#090013 90%,#2e005e 100%)
-  }
   100%,
   80% {
-    background: #03005e;
-    background: linear-gradient(90deg,#03005e 0,#010013 10%,#010013 90%,#03005e 100%)
+    background-color: #03005e;
+    background-image: linear-gradient(90deg,#03005e 25%,#00fbff 100%)
   }
 }
 @keyframes rotateAnimation {
@@ -97,28 +70,8 @@
   }
 }
 @keyframes moveBg {
-  to { background-position: 200% center; }
-}
-@keyframes formBg{
-  0%,
-  18% {
-    background-color: #040430;
-  }
-  20%,
-  38% {
-    background-color: #30010a;
-  }
-  40%,
-  58% {
-    background-color: #180623;
-  }
-  60%,
-  78% {
-    background-color: #120026;
-  }
-  80%,
-  100% {
-    background-color: #010026;
+  to {
+    background-position: 200% center
   }
 }
 #shape {
@@ -138,16 +91,17 @@ main {
   display: inline-block;
   width: 2px;
   height: 48px;
-  background-color: #fff;
+  background-color: rgb(var(--foreground-rgb));
   animation: blink .6s linear infinite alternate;
   position: relative;
   top: 2px
 }
-.section-heading{
+.section-heading {
   text-decoration: underline;
-  font-weight: 600;
+  font-weight: 600
 }
-.header::after, .footer::before{
+.footer::before,
+.header::after {
   content: '';
   display: block;
   height: 11px;
@@ -157,46 +111,39 @@ main {
   bottom: 0;
   left: 50%;
   translate: -50% 0;
-  box-shadow: 0 5px 12px -5px rgb(255 255 255 / 85%);
+  box-shadow: 0 5px 12px -5px rgba(var(--foreground-rgb) ,.85)
 }
-
-.footer::before{
+.footer::before {
   bottom: auto;
   top: 0;
-  box-shadow: 0 -5px 12px -5px rgb(255 255 255 / 85%);
+  box-shadow: 0 -5px 12px -5px rgba(var(--foreground-rgb) ,.85)
 }
-.gradient-text{
-  background-image: linear-gradient(to right, #00d4ff, #fc466b, #5145fc, #00fbff, #00d4ff);
+.gradient-text {
+  background-image: linear-gradient(to right,#00d4ff,#fc466b,#5145fc,#00fbff,#00d4ff);
   animation: moveBg 4s linear infinite;
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent
 }
-.gradient-form{
-  animation: 20s linear infinite alternate formBg;
-  border: 1px solid rgb(255 255 255 / 15%)
-}
-body::-webkit-scrollbar {
-  width: 10px;
-}
- 
-body::-webkit-scrollbar-track {
-  background-color: black;
-}
- 
-body::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: gray;
-  background-position: 0 0;
-}
-
-.glass{
-  background-image: linear-gradient(172deg, rgb(255, 255, 255, .15), transparent);
-  box-shadow: 2px 4px 6px rgba(0, 0, 0, .1), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+.glass {
+  background-image: linear-gradient(172deg,rgb(var(--foreground-rgb),.15),transparent);
+  box-shadow: 2px 4px 6px rgba(0,0,0,.1),inset 0 0 0 1px rgba(var(--foreground-rgb),.1);
   backdrop-filter: blur(10px);
+  background-color: transparent
 }
-
-.glass-hover:hover{
-  background-image: linear-gradient(172deg, rgb(255, 255, 255, .25), transparent);
+.glass-hover:hover {
+  background-image: linear-gradient(172deg,rgb(var(--foreground-rgb),.25),transparent)
+}
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgb(var(--background-start-rgb));
+  -webkit-border-radius: 1ex
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--foreground-rgb),0.1);
+  -webkit-border-radius: 1ex
+}
+::-webkit-scrollbar-corner {
+  background: #fff3
 }
