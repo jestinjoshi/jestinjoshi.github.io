@@ -6,7 +6,7 @@ import Script from 'next/script'
 export const metadata: Metadata = {
   metadataBase: new URL('https://jestinjoshi.github.io/'),
   title: 'Jestin | Frontend Web Developer',
-  description: 'A portfolio website of Jestin Palamuttam, an experienced frontend web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.',
+  description: 'Portfolio website of Jestin Palamuttam, an experienced frontend web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.',
   appleWebApp: {
     capable: true,
     title: 'Jestin',
