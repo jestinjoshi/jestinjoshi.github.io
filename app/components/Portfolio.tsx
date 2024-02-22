@@ -46,7 +46,7 @@ export default function Portfolio() {
                     {portfolio.map((e, i) =>
                         <motion.div key={e.link} className="portfolio glass rounded-lg p-6" initial={initialFadeUp} whileInView={fadeIn(i * 0.2)} viewport={{ once: true }}>
                             <div className="portfolio-title">
-                                <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-xl mb-2 inline-block">
+                                <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-xl mb-4 inline-block link-underline">
                                     <p className="project-name">{e.name}</p>
                                 </a>
                                 <p className="portfolio-description">{e.description}</p>

@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const target = headerRef.current?.querySelector(`a[href="#${entry.target.id}"]`);
-                    if (target && target.parentElement?.style.opacity) {
+                    if (target) {
                         highlightSection(target)
                     }
                 }
@@ -55,8 +55,7 @@ const Header: React.FC<HeaderProps> = ({ mainRef }) => {
 
         const observer = new IntersectionObserver(handleIntersection, {
             root: null,
-            rootMargin: "-30%",
-            threshold: 0
+            rootMargin: "-120px 0px -50% 0px",
         });
 
         mainRef.current?.querySelectorAll('section').forEach(el => observer.observe(el))

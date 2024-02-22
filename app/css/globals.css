@@ -5,7 +5,9 @@
 :root {
   --foreground-rgb: 255,255,255;
   --background-start-rgb: 15,15,20;
-  --background-end-rgb: 25,25,30
+  --background-end-rgb: 25,25,30;
+  --subtitle-rgb: 134, 147, 171;
+  --link-underline-rgb: 81, 69, 252;
 }
 body {
   color: rgb(var(--foreground-rgb));

@@ -8,11 +8,11 @@ export default function Education() {
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Education</h2>
                 <div className="education-wrap">
                     <div className="education">
-                        <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-2 gap-5 sm:gap-0">
+                        <div className="flex flex-col sm:flex-row justify-between sm:items-center mb-4 gap-5 sm:gap-0">
                             <div className="education-title text-xl flex flex-col lg:flex-row">
                                 <span className="education-role">Bachelor of Science <span className="hidden sm:inline">(Information Technology)</span></span>
                                 <span className="sep mx-2 hidden lg:inline"> | </span>
-                                <a href="https://mu.ac.in/" className="education-company hover:underline">University of Mumbai</a>
+                                <a href="https://mu.ac.in/" className="education-company link-underline">University of Mumbai</a>
                             </div>
                             <p className="education-duration italic">July 2014 - Oct 2017</p>
                         </div>
