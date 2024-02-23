@@ -181,7 +181,7 @@ const HamburgerMenu = (props: HamburgerProps) => {
                 custom={containerHeightRef.current}
                 className="absolute right-0 top-0 z-[1] w-full h-screen text-center flex items-center justify-center bg-slate-900"
             >
-                <motion.ul variants={menuContainerVariant} className="flex flex-col gap-6">
+                <motion.ul variants={menuContainerVariant} className="flex flex-col gap-8">
                     {menu.map((m, i) =>
                         <motion.li key={m} className="capitalize" whileTap={{ scale: 0.95 }} variants={menuVariant}>
                             <a className="hover:opacity-75 text-xl" onClick={handleHamburgerMenuClick} href={`#${m}`}>{m}</a>
