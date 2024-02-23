@@ -74,7 +74,7 @@ const Header = ({ mainRef }: HeaderProps) => {
     }, [mainRef])
 
     return (
-        <motion.header initial={initialFadeDown} animate={fadeIn(0.2)} ref={headerRef} className="py-4 sm:py-10 sticky top-0 backdrop-blur-lg z-20 relative header">
+        <motion.header initial={initialFadeDown} animate={fadeIn(0.2)} ref={headerRef} className="py-4 sm:py-10 sticky top-0 backdrop-blur-lg z-20 header">
             <div className="custom-container px-5 mx-auto">
                 <div className="logo-menu-wrap flex justify-between items-center">
                     <motion.a aria-label="Logo" href="/" className="block" initial={initialFadeDown} animate={fadeIn(0.5)}>
