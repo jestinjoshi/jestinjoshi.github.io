@@ -35,13 +35,13 @@ export default function Intro() {
             <div className="custom-container px-5 mx-auto">
                 <div className="flex justify-center gap-5 sm:gap-20 flex-wrap items-center">
                     <motion.div initial={{ ...initialFadeUp }} animate={{ ...fadeIn(0.5) }} className="avatar-wrap relative w-full lg:w-[300px]">
-                        <Image priority className="relative z-10 rounded-full mx-auto backdrop-blur-sm" alt="Avatar" width={300} height={300} src="/img/avatar.webp"></Image>
+                        <Image priority className="relative z-10 rounded-full mx-auto grayscale" alt="Avatar" width={300} height={300} src="/img/avatar.webp"></Image>
                         <div id="shape"></div>
                     </motion.div>
                     <div className="about flex-1 text-center lg:text-left">
-                        <motion.h1 initial={initialFadeUp} animate={fadeIn(0.7)} className="text-3xl sm:text-5xl mb-5">
+                        <motion.h1 initial={initialFadeUp} animate={fadeIn(0.7)} className="text-3xl sm:text-5xl mb-5 font-medium">
                             <Greeting />
-                            <span className="cursor"></span>, I&apos;m <span className="gradient-text">Jestin</span>
+                            <span className="cursor h-[28px] sm:h-[40px]"></span>, I&apos;m <span className="gradient-text">Jestin</span>
                         </motion.h1>
                         <motion.p initial={initialFadeUp} animate={fadeIn(0.9)} className="text-lg mb-5 text-center lg:text-justify">I am a frontend web developer with a track record of {calculateExperience()}+ years in developing websites across diverse categories, including blogs, e-commerce, dashboards, and static sites. I love solving complex problems with cutting-edge web technologies, implementing challenging UI interactions and components; and collaborating with talented teams.</motion.p>
 

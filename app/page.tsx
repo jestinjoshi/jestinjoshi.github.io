@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from "framer-motion";
 import { useRef } from 'react'
 import Contact from './components/Contact'
 import Education from './components/Education'
@@ -9,22 +10,26 @@ import Header from './components/Header'
 import Intro from './components/Intro'
 import Portfolio from './components/Portfolio'
 import Skills from './components/Skills'
+import ProfessionalSummary from "./components/ProfessionalSummary";
 
 export default function Home() {
   const mainRef = useRef(null);
 
   return (
     <>
-      <Header mainRef={mainRef}></Header>
-      <main ref={mainRef}>
-        <Intro></Intro>
-        <Skills></Skills>
-        <Experience></Experience>
-        <Education></Education>
-        <Portfolio></Portfolio>
-        <Contact></Contact>
-      </main>
-      <Footer></Footer>
+      <Header mainRef={mainRef} />
+      <motion.main initial={{ backgroundPositionX: '-150%' }} animate={{ backgroundPositionX: '20%' }} ref={mainRef}>
+        <Intro />
+        <Skills />
+        <ProfessionalSummary />
+        <Experience />
+        <Education />
+        <motion.div className="portfolio-contact-wrap" initial={{ backgroundPositionX: '500%' }} whileInView={{ backgroundPositionX: '200%' }} viewport={{ once: true }}>
+          <Portfolio />
+          <Contact />
+        </motion.div>
+      </motion.main>
+      <Footer />
     </>
   )
 }

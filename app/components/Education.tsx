@@ -3,7 +3,7 @@ import { fadeIn, initialFadeUp } from "../animations"
 
 export default function Education() {
     return (
-        <motion.section initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="education" className="py-5 sm:py-10">
+        <motion.section initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="education" className="py-5 sm:py-12 bg-zinc-900">
             <div className="custom-container px-5 mx-auto">
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Education</h2>
                 <div className="education-wrap">

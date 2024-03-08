@@ -55,8 +55,7 @@ const Header = ({ mainRef }: HeaderProps) => {
         };
 
         const observer = new IntersectionObserver(handleIntersection, {
-            root: null,
-            rootMargin: "-120px 0px -50% 0px",
+            rootMargin: "-19% 0px -80% 0px",
         });
 
         mainRef.current?.querySelectorAll('section').forEach(el => observer.observe(el))
