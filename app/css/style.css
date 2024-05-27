@@ -228,7 +228,7 @@ main {
 .hamburger-menu {
   background: linear-gradient(209deg,#06225a 0,#010713 60%)
 }
-#professional-summary .experience::before, #professional-summary .experience::after{
+:is(#professional-summary, #experience) .experience::before, :is(#professional-summary, #experience) .experience::after{
   content: '';
   display: block;
   width: 100%;
@@ -239,7 +239,7 @@ main {
   left: 0;
   translate: 0 -50%;
 }
-#professional-summary .experience::after{
+:is(#professional-summary, #experience) .experience::after{
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -264,4 +264,27 @@ main {
   translate: 0 -50%;
   border: 1px solid #fff;
   border-radius: 50%;
+}
+#experience .experience::before{
+  width: 1px;
+  height: 100%;
+  top: 20px;
+  translate: 5px 0;
+  left: -5px;
+}
+#experience .experience::after{
+  top: 20px;
+  left: -5px;
+}
+@media (min-width: 1024px) {
+  #experience .experience::before,
+  #experience .experience::after{
+    left: 5px;
+  }
+}
+@media (min-width: 1280px) {
+  #experience .experience::before,
+  #experience .experience::after{
+    left: 20px;
+  }
 }

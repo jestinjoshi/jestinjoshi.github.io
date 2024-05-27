@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn, initialFadeUp } from "../animations";
 import { useRef, useState } from "react";
+import { getDateDiff } from "./ProfessionalSummary";
 
 export const experience = [
     {
@@ -84,48 +85,23 @@ export default function Experience() {
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Experience</h2>
                 <div className="experience-wrap">
                     {experience.map((e, i) =>
-                        <motion.div onClick={() => setExpanded(i === expanded ? false : i)} key={e.startDate} className={`experience mb-5 lg:mb-10 glass glass-hover rounded-lg p-4 sm:p-6 cursor-pointer ${i === expanded ? 'active' : ''}`} initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
-                            <div className="flex flex-col sm:flex-row justify-between transition-all sm:items-center gap-5 sm:gap-0">
-                                <div className="experience-title text-xl">
-                                    <div className="flex items-center">
-                                        <motion.svg animate={{ rotate: i === expanded ? 180 : 0 }} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down inline-block mr-2"><polyline points="6 9 12 15 18 9" /></motion.svg>
-                                        <div className="flex flex-col lg:flex-row">
-                                            <span className="experience-role">{e.position}</span>
-                                            <span className="sep mx-2 hidden lg:inline"> | </span>
-                                            <div>
-                                                <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company hover:underline mr-2 link-underline">{e.company}</a>
-                                                <a href={e.linkedIn} title={`Linkedin Page of ${e.company}`} target="_blank" rel="noopener noreferrer" className="align-middle relative bottom-0.5 hidden sm:inline-block">
-                                                    <svg className="w-6 h-6 text-gray-800 dark:text-white border border-solid rounded border-transparent hover:border-current transition-all duration-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path fillRule="evenodd" d="M12.5 8.8v1.7a3.7 3.7 0 0 1 3.3-1.7c3.5 0 4.2 2.2 4.2 5v5.7h-3.2v-5c0-1.3-.2-2.8-2.1-2.8-1.9 0-2.2 1.3-2.2 2.6v5.2H9.3V8.8h3.2ZM7.2 6.1a1.6 1.6 0 0 1-2 1.6 1.6 1.6 0 0 1-1-2.2A1.6 1.6 0 0 1 6.6 5c.3.3.5.7.5 1.1Z" clipRule="evenodd" />
-                                                        <path d="M7.2 8.8H4v10.7h3.2V8.8Z" />
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <p className="experience-duration italic text-base sm:hidden">{e.startDate} - {e.endDate}</p>
-                                        </div>
-                                    </div>
+                        <motion.div key={e.startDate} className={`experience relative pl-5 lg:pl-10 xl:pl-20 ${i < experience.length - 1 && 'pb-5 lg:pb-10'} ${i === expanded ? 'active' : ''}`} initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
+                            <div className="flex flex-col sm:flex-row justify-between sm:items-center">
+                                <div className="">
+                                    <span className="experience-role block font-medium text-lg">{e.position}</span>
+                                    <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company text-sm">{e.company}</a>
                                 </div>
-                                <p className="experience-duration italic hidden sm:block">{e.startDate} - {e.endDate}</p>
+                                <div>
+                                    <p className="experience-duration hidden sm:block text-sm">{e.startDate} - {e.endDate}</p>
+                                    <p className="experience-duration hidden sm:block text-xs">{getDateDiff(e.startDate, e.endDate)}</p>
+                                </div>
                             </div>
                             <AnimatePresence initial={false}>
-                                {
-                                    i === expanded &&
-                                    <motion.ul
-                                        layout
-                                        initial="collapsed"
-                                        animate="open"
-                                        exit="collapsed"
-                                        variants={{
-                                            open: { opacity: 1, height: "auto", marginTop: 20 },
-                                            collapsed: { opacity: 0, height: 0, marginTop: 0 }
-                                        }}
-                                        transition={{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] }}
-                                        className="experience-description list-disc pl-5">
-                                        {e.responsibilities.map((r, i) =>
-                                            <li key={i} className="experience-bullets mb-2 text-justify">{r}</li>
-                                        )}
-                                    </motion.ul>
-                                }
+                                <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
+                                    {e.responsibilities.map((r, j) =>
+                                        (i === expanded || j === 0) && <li key={j} className="experience-bullets mb-2 text-justify text-sm">{r} {((i !== expanded && j === 0) || (i === expanded && j === e.responsibilities.length - 1)) && <span className="underline cursor-pointer text-blue-500" onClick={() => setExpanded(i === expanded ? false : i)}>Read {(i !== expanded && j === 0) ? 'More' : 'Less'}</span>}</li>
+                                    )}
+                                </ul>
                             </AnimatePresence>
                         </motion.div>
                     )}
