@@ -42,7 +42,7 @@ export default function ProfessionalSummary() {
             acc[chunkIndex].push(curr);
             return acc;
         }, []);
-    }, [experience])
+    }, [])
 
     return (
         <div id="professional-summary" className="py-5 sm:py-10 hidden sm:block">
@@ -56,7 +56,7 @@ export default function ProfessionalSummary() {
                 </div>
                 <div className="experience-wrap gap-y-20 flex flex-wrap justify-end px-20">
                     {chunksOfExperience.map((experienceChunk, ind) => (
-                        <div className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+                        <div key={ind} className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
                             {experienceChunk.map((e, i) =>
                                 <>
                                     {ind > 0 && i === 0 && <span className={`curve ${ind % 2 === 0 ? 'reverse' : ''}`}></span>}
