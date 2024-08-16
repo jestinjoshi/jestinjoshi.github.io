@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { fadeIn, initialFadeUp } from "../animations";
+import useExperience from "../utils/useExperience";
 
 let helloArray = [
     "Hello",             // English
@@ -21,14 +22,7 @@ let deleting = false;
 let pause = 5000;
 
 export default function Intro() {
-    const calculateExperience = () => {
-        const d = new Date();
-        let year = d.getFullYear();
-        if (d.getMonth() < 6) {
-            year--;
-        }
-        return Math.abs(2018 - year)
-    }
+    const yearsOfExperience = useExperience();
 
     return (
         <section id="about" className="py-5 sm:py-10">
@@ -43,7 +37,7 @@ export default function Intro() {
                             <Greeting />
                             <span className="cursor h-[28px] sm:h-[40px]"></span>, I&apos;m <span className="gradient-text">Jestin</span>
                         </motion.h1>
-                        <motion.p initial={initialFadeUp} animate={fadeIn(0.9)} className="text-lg mb-5 text-center lg:text-justify">I am a frontend web developer from <span className="gradient-text font-bold">Toronto</span> with a track record of {calculateExperience()}+ years in developing websites across diverse categories, including blogs, e-commerce, dashboards, and static sites. I love solving complex problems with cutting-edge web technologies, implementing challenging UI interactions and components; and collaborating with talented teams.</motion.p>
+                        <motion.p initial={initialFadeUp} animate={fadeIn(0.9)} className="text-lg mb-5 text-center lg:text-justify">I am a frontend web developer from <span className="gradient-text font-bold">Toronto</span> with a track record of {yearsOfExperience}+ years in developing websites across diverse categories, including blogs, e-commerce, dashboards, and static sites. I love solving complex problems with cutting-edge web technologies, implementing challenging UI interactions and components; and collaborating with talented teams.</motion.p>
 
                         <motion.p initial={initialFadeUp} animate={fadeIn(1.1)} className="text-lg mb-5 text-center lg:text-justify">I am always eager to learn new skills and explore new challenges. Currently, I&apos;m keen on delving into backend technologies, CI/CD, and database development as I am inclined to become a fullstack developer in the future.</motion.p>
                         <motion.div initial={initialFadeUp} animate={fadeIn(1.3)} className="inline-flex mt-12 items-center flex-wrap gap-8 justify-center">

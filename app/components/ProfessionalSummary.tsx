@@ -1,3 +1,4 @@
+import useExperience from "../utils/useExperience";
 import { experience } from "./Experience";
 
 export const getDateDiff = (date1: string, date2: string) => {
@@ -28,13 +29,15 @@ export const getDateDiff = (date1: string, date2: string) => {
 const variableWidth = ['w-[40%]', 'w-[60%]', 'w-[40%] order-1', 'w-[50%]'];
 
 export default function ProfessionalSummary() {
+    const yearsOfExperience = useExperience();
+
     return (
         <div id="professional-summary" className="py-5 sm:py-10 hidden md:block">
             <div className="custom-container px-5 mx-auto flex flex-col lg:flex-row gap-8">
                 <div className="year-wrap w-full lg:w-[160px] flex flex-row lg:flex-col justify-between lg:justify-start items-center lg:items-start">
                     <h3 className="mb-4 border-b pb-2 lg:pb-4 flex-1 lg:flex-none">Professional Summary</h3>
                     <div className="pl-4 lg:pl-0">
-                        <span className="gradient-text text-5xl font-semibold mr-1">5</span>
+                        <span className="gradient-text text-5xl font-semibold mr-1">{yearsOfExperience}</span>
                         <span>Years</span>
                     </div>
                 </div>
