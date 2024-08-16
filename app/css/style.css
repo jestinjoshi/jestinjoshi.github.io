@@ -253,6 +253,10 @@ main {
   left: 100%;
   overflow: hidden;
 }
+#professional-summary .curve.reverse {
+  left: calc(0% - 100px);
+  transform: rotate(180deg);
+}
 #professional-summary .curve::before {
   content: '';
   display: block;

@@ -3,7 +3,34 @@ import { fadeIn, initialFadeUp } from "../animations";
 import { useRef, useState } from "react";
 import { getDateDiff } from "./ProfessionalSummary";
 
-export const experience = [
+export type ExperienceType = {
+    position: string;
+    company: string;
+    companyWebsite: string;
+    linkedIn: string;
+    location: string;
+    startDate: string;
+    endDate: string;
+    responsibilities: Array<string>
+};
+
+export const experience: ExperienceType[] = [
+    {
+        position: "Freelance Web Developer",
+        company: "Upwork",
+        companyWebsite: "https://upwork.com",
+        linkedIn: "https://linkedin.com/company/upwork",
+        location: "Toronto",
+        startDate: "Oct 2023",
+        endDate: "Present",
+        responsibilities: [
+            "Built 7 websites using React, Vue, WordPress, Express.js, JavaScript, HTML and CSS.",
+            "Created detailed project proposals outlining the scope, timelines, deliverables, and cost estimates.",
+            "Kept clients informed of project progress and incorporated feedback.",
+            "Worked with other freelancers or team members as needed.",
+            "Stayed updated with web development trends and continuously improved technical skills.",
+        ]
+    },
     {
         position: "UI Developer 2",
         company: "Media.net",
