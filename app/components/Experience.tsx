@@ -112,7 +112,13 @@ export default function Experience() {
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Experience</h2>
                 <div className="experience-wrap">
                     {experience.map((e, i) =>
-                        <motion.div key={e.startDate} className={`experience relative pl-5 lg:pl-10 xl:pl-20 ${i < experience.length - 1 && 'pb-5 lg:pb-10'} ${i === expanded ? 'active' : ''}`} initial={initialFadeUp} whileInView={fadeIn(0.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }}>
+                        <motion.div
+                            key={e.startDate}
+                            className={`experience relative pl-5 lg:pl-10 xl:pl-20 ${i < experience.length - 1 && 'pb-5 lg:pb-10'} ${i === expanded ? 'active' : ''}`}
+                            initial={initialFadeUp}
+                            whileInView={fadeIn(0.5 + i * 0.2)}
+                            viewport={{ once: true, root: scrollRef }}
+                        >
                             <div className="flex flex-col sm:flex-row justify-between sm:items-center">
                                 <div className="">
                                     <span className="experience-role block font-medium text-lg">{e.position}</span>

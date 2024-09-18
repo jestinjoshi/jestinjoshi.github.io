@@ -30,7 +30,13 @@ export default function Skills() {
                 <h2 className="text-4xl section-heading mb-10 gradient-text">Skills</h2>
                 <div className="skill-type-wrap grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-10">
                     {skills.map(({ skillCategory, skills }, i) =>
-                        <motion.div initial={initialFadeUp} whileInView={fadeIn(1.5 + i * 0.2)} viewport={{ once: true, root: scrollRef }} className="skill-type glass p-6 rounded-lg backdrop-blur" key={skillCategory}>
+                        <motion.div
+                            initial={initialFadeUp}
+                            whileInView={fadeIn(1.5 + i * 0.2)}
+                            viewport={{ once: true, root: scrollRef }}
+                            className="skill-type glass p-6 rounded-lg backdrop-blur"
+                            key={skillCategory}
+                        >
                             <p className="skill-type-heading text-xl mb-2">{skillCategory}</p>
                             <p className="skills">{skills}</p>
                         </motion.div>
