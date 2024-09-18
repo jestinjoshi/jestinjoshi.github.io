@@ -5,8 +5,8 @@ import Script from 'next/script'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://jestinjoshi.github.io/'),
-  title: 'Jestin | Frontend Web Developer',
-  description: 'Portfolio website of Jestin Palamuttam, an experienced frontend web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.',
+  title: 'Jestin | Web Developer',
+  description: 'Portfolio website of Jestin Palamuttam, an experienced web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.',
   appleWebApp: {
     capable: true,
     title: 'Jestin',
@@ -35,9 +35,9 @@ const jsonLd = {
     "https://github.com/jestinjoshi",
     "https://twitter.com/your-twitter-handle"
   ],
-  "jobTitle": "Frontend Web Developer",
+  "jobTitle": "Web Developer",
   "knows": "HTML, CSS, JavaScript, React, Vue, WordPress, PHP",
-  "description": "Experienced frontend web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.",
+  "description": "Experienced web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Toronto",
