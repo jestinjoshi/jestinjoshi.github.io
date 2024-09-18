@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import useExperience from "../utils/useExperience";
 import { experience, ExperienceType } from "./Experience";
 
@@ -58,9 +58,9 @@ export default function ProfessionalSummary() {
                     {chunksOfExperience.map((experienceChunk, ind) => (
                         <div key={ind} className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
                             {experienceChunk.map((e, i) =>
-                                <>
+                                <React.Fragment key={e.startDate}>
                                     {ind > 0 && i === 0 && <span className={`curve ${ind % 2 === 0 ? 'reverse' : ''}`}></span>}
-                                    <div key={e.startDate} className={`experience relative flex-auto ${i % 2 === 0 ? 'basis-3/5' : 'basis-2/5'} pr-6`}>
+                                    <div className={`experience relative flex-auto ${i % 2 === 0 ? 'basis-3/5' : 'basis-2/5'} pr-6`}>
                                         <div className="flex flex-col mb-10">
                                             <span className="text-sm mb-2 whitespace-nowrap">{e.startDate} - {e.endDate}</span>
                                             <span className="text-xs font-semibold">{getDateDiff(e.startDate, e.endDate)}</span>
@@ -70,7 +70,7 @@ export default function ProfessionalSummary() {
                                             <span className="text-sm">{e.company}</span>
                                         </div>
                                     </div>
-                                </>
+                                </React.Fragment>
                             )}
                         </div>
                     ))}
