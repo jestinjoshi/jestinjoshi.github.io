@@ -116,19 +116,19 @@ main {
 .header::after {
   content: '';
   display: block;
-  height: 11px;
+  height: 100%;
   width: calc(100% - 40px);
   max-width: 1024px;
   position: absolute;
   bottom: 0;
   left: 50%;
   translate: -50% 0;
-  box-shadow: 0 5px 12px -5px rgba(var(--foreground-rgb) ,.85)
+  box-shadow: 0 11px 10px -12px rgba(var(--foreground-rgb) ,.35)
 }
 .footer::before {
   bottom: auto;
   top: 0;
-  box-shadow: 0 -5px 12px -5px rgba(var(--foreground-rgb) ,.85)
+  box-shadow: 0 -11px 10px -12px rgba(var(--foreground-rgb) ,.35)
 }
 .gradient-text {
   background-image: linear-gradient(to right,#00d4ff,#fc466b,#5145fc,#00fbff,#00d4ff);
