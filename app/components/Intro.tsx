@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { fadeIn, initialFadeUp } from "../animations";
 import useExperience from "../utils/useExperience";
@@ -83,7 +83,7 @@ export default function Intro() {
 function Greeting() {
     const [greeting, setGreeting] = useState('Hi');
 
-    const handleTyping = () => {
+    const handleTyping = useCallback(() => {
         if (helloArray[i].length >= j && !deleting) {
             pause = 100;
             setGreeting(helloArray[i].substring(0, j));
@@ -106,7 +106,7 @@ function Greeting() {
                 }
             }
         }
-    };
+    }, []);
 
     useEffect(() => {
         const id = setTimeout(handleTyping, pause);
@@ -116,6 +116,6 @@ function Greeting() {
     }, [greeting]);
 
     return (
-        <>{greeting.length ? greeting : ''}</>
+        <>{greeting}</>
     )
 }
