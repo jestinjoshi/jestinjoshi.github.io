@@ -53,17 +53,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-NMNP0QSWEX" />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+      <head>
+        <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-NMNP0QSWEX" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-NMNP0QSWEX');
         `}
-      </Script>
-      <Script id='structuredData' type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        </Script>
+        <Script id='structuredData' type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </head>
       <body>{children}</body>
     </html>
   )
