@@ -88,17 +88,17 @@ main {
   background-image: url(/img/home-bg.svg);
   background-size: 120%;
   background-repeat: no-repeat;
-  background-position-y: 5%;
+  background-position-y: 5%
 }
-@media screen and (min-width: 560px)  {
+@media screen and (min-width:560px) {
   main {
-    background-position-y: top;
-  }  
+    background-position-y: top
+  }
 }
 .portfolio-contact-wrap {
   background-image: url(/img/home-bg-2.svg);
   background-size: 120%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat
 }
 .cursor {
   display: inline-block;
@@ -123,7 +123,8 @@ main {
   bottom: 0;
   left: 50%;
   translate: -50% 0;
-  box-shadow: 0 11px 10px -12px rgba(var(--foreground-rgb) ,.35)
+  box-shadow: 0 11px 10px -12px rgba(var(--foreground-rgb) ,.35);
+  pointer-events: none
 }
 .footer::before {
   bottom: auto;
@@ -228,7 +229,8 @@ main {
 .hamburger-menu {
   background: linear-gradient(209deg,#06225a 0,#010713 60%)
 }
-:is(#professional-summary, #experience) .experience::before, :is(#professional-summary, #experience) .experience::after{
+:is(#professional-summary, #experience) .experience::after,
+:is(#professional-summary, #experience) .experience::before {
   content: '';
   display: block;
   width: 100%;
@@ -237,12 +239,12 @@ main {
   position: absolute;
   top: 50%;
   left: 0;
-  translate: 0 -50%;
+  translate: 0 -50%
 }
-:is(#professional-summary, #experience) .experience::after{
+:is(#professional-summary, #experience) .experience::after {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: 50%
 }
 #professional-summary .curve {
   display: block;
@@ -251,11 +253,11 @@ main {
   position: absolute;
   top: -111%;
   left: 100%;
-  overflow: hidden;
+  overflow: hidden
 }
 #professional-summary .curve.reverse {
   left: calc(0% - 100px);
-  transform: rotate(180deg);
+  transform: rotate(180deg)
 }
 #professional-summary .curve::before {
   content: '';
@@ -267,28 +269,28 @@ main {
   right: 0;
   translate: 0 -50%;
   border: 1px solid #fff;
-  border-radius: 50%;
+  border-radius: 50%
 }
-#experience .experience::before{
+#experience .experience::before {
   width: 1px;
   height: 100%;
   top: 20px;
   translate: 5px 0;
-  left: -5px;
+  left: -5px
 }
-#experience .experience::after{
+#experience .experience::after {
   top: 20px;
-  left: -5px;
+  left: -5px
 }
-@media (min-width: 1024px) {
-  #experience .experience::before,
-  #experience .experience::after{
-    left: 5px;
+@media (min-width:1024px) {
+  #experience .experience::after,
+  #experience .experience::before {
+    left: 5px
   }
 }
-@media (min-width: 1280px) {
-  #experience .experience::before,
-  #experience .experience::after{
-    left: 20px;
+@media (min-width:1280px) {
+  #experience .experience::after,
+  #experience .experience::before {
+    left: 20px
   }
 }
