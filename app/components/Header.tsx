@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect, useRef, useState } from "react";
+import React, { MouseEventHandler, useCallback, useEffect, useRef, useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import { fadeIn, initialFadeDown } from "../animations";
 
@@ -15,7 +15,7 @@ const Header = ({ mainRef }: HeaderProps) => {
     const headerRef = useRef<HTMLElement>(null);
     const [targetStyle, setTargetStyle] = useState({});
 
-    const handleHashClick: MouseEventHandler = (e) => {
+    const handleHashClick: MouseEventHandler = useCallback((e) => {
         e.preventDefault();
         const href = (e.currentTarget as Element).getAttribute('href');
         const targetElement = mainRef?.current?.querySelector(href || '') as HTMLElement;
@@ -26,9 +26,9 @@ const Header = ({ mainRef }: HeaderProps) => {
                 top: offsetTop
             })
         }
-    }
+    }, [mainRef, headerRef]);
 
-    const highlightSection = (target: Element) => {
+    const highlightSection = useCallback((target: Element) => {
         if (target) {
             const width = target.getBoundingClientRect().width;
             const left = target.getBoundingClientRect().left;
@@ -40,7 +40,7 @@ const Header = ({ mainRef }: HeaderProps) => {
             })
             initialHighlightOffset = 0;
         }
-    }
+    }, []);
 
     useEffect(() => {
         const handleIntersection: IntersectionObserverCallback = (entries) => {
