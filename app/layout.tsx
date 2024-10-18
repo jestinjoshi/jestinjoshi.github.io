@@ -21,20 +21,20 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: 'https://jestinjoshi.github.io/img/avatar.webp',
-        width: 500,
-        height: 500,
+        url: 'https://jestinjoshi.github.io/img/preview.webp',
+        width: 1200,
+        height: 630,
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     creator: "@jestinjoshi",
     images: [
       {
-        url: 'https://jestinjoshi.github.io/img/avatar.webp',
-        width: 500,
-        height: 500,
+        url: 'https://jestinjoshi.github.io/img/preview.webp',
+        width: 1200,
+        height: 630,
       },
     ],
   },
