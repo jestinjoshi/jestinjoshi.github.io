@@ -7,17 +7,36 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://jestinjoshi.github.io/'),
   title: 'Jestin • Web Developer • Toronto, Canada',
   description: 'Portfolio website of Jestin Palamuttam, an experienced web developer passionate about creating responsive and user-friendly websites. Proficient in the latest web technologies and committed to delivering high-quality results.',
+  keywords: ['web developer', 'portfolio', 'jestin palamuttam', 'toronto', 'canada', 'responsive', 'user-friendly', 'web technologies', 'high-quality results'],
+  icons: {
+    icon: './favicon.ico',
+    apple: './favicon.ico',
+  },
   appleWebApp: {
     capable: true,
     title: 'Jestin',
     statusBarStyle: 'black-translucent',
   },
   openGraph: {
-    type: "profile",
+    type: "website",
+    images: [
+      {
+        url: 'https://jestinjoshi.github.io/img/avatar.webp',
+        width: 500,
+        height: 500,
+      },
+    ],
   },
   twitter: {
     card: "summary",
-    creator: "@jestinjoshi"
+    creator: "@jestinjoshi",
+    images: [
+      {
+        url: 'https://jestinjoshi.github.io/img/avatar.webp',
+        width: 500,
+        height: 500,
+      },
+    ],
   },
   verification: {
     google: "I3mkVwBHNX9HGBRlqfDzXzYZ33drz0Ah-s5uSaGOTTY"
