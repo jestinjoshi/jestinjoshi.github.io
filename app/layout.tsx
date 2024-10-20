@@ -12,11 +12,6 @@ export const metadata: Metadata = {
     icon: './favicon.ico',
     apple: './favicon.ico',
   },
-  appleWebApp: {
-    capable: true,
-    title: 'Jestin',
-    statusBarStyle: 'black-translucent',
-  },
   openGraph: {
     type: "website",
     images: [
