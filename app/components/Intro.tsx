@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion"
 import { fadeIn, initialFadeUp } from "../animations";
-import useExperience from "../utils/useExperience";
+import useExperience from "../hooks/useExperience";
 
 let helloArray = [
     "Hello",             // English

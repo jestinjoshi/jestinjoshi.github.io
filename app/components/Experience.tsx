@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { fadeIn, initialFadeUp } from "../animations";
 import { useRef, useState } from "react";
-import { getDateDiff } from "./ProfessionalSummary";
+import React, { memo } from 'react';
+import { useDateDiff } from "../hooks/useDateDiff";
 
 export type ExperienceType = {
     position: string;
@@ -101,10 +102,52 @@ export const experience: ExperienceType[] = [
     }
 ];
 
-export default function Experience() {
+type ExperienceItemProps = {
+    e: ExperienceType;
+    i: number;
+    expanded: false | number;
+    setExpanded: React.Dispatch<React.SetStateAction<false | number>>;
+    scrollRef: React.RefObject<HTMLElement>;
+};
 
+const ExperienceItem: React.FC<ExperienceItemProps> = memo(
+    ({ e, i, expanded, setExpanded, scrollRef }) => {
+        const dateDiff = useDateDiff(e.startDate, e.endDate);
+
+        return (
+            <motion.div
+                key={e.startDate}
+                className={`experience relative pl-5 lg:pl-10 xl:pl-20 ${i < experience.length - 1 && 'pb-5 lg:pb-10'}`}
+                initial={initialFadeUp}
+                whileInView={fadeIn(0.5 + i * 0.2)}
+                viewport={{ once: true, root: scrollRef }}
+            >
+                <div className="flex flex-col sm:flex-row justify-between sm:items-center">
+                    <div className="">
+                        <span className="experience-role block font-medium text-lg">{e.position}</span>
+                        <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company text-sm">{e.company}</a>
+                    </div>
+                    <div>
+                        <p className="experience-duration hidden sm:block text-sm">{e.startDate} - {e.endDate}</p>
+                        <p className="experience-duration hidden sm:block text-xs">{dateDiff}</p>
+                    </div>
+                </div>
+                <AnimatePresence initial={false}>
+                    <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
+                        {e.responsibilities.map((r, j) =>
+                            (i === expanded || j === 0) && <li key={j} className="experience-bullets mb-2 text-justify text-sm">{r} {((i !== expanded && j === 0) || (i === expanded && j === e.responsibilities.length - 1)) && <span className="underline cursor-pointer text-blue-500" onClick={() => setExpanded(i === expanded ? false : i)}>Read {(i !== expanded && j === 0) ? 'More' : 'Less'}</span>}</li>
+                        )}
+                    </ul>
+                </AnimatePresence>
+            </motion.div>
+        );
+    },
+    (prevProps, nextProps) => prevProps.expanded === nextProps.expanded && prevProps.i === nextProps.i
+);
+
+export default function Experience() {
     const [expanded, setExpanded] = useState<false | number>(0);
-    const scrollRef = useRef(null);
+    const scrollRef = useRef<HTMLElement>(null);
 
     return (
         <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="experience" className="py-5 sm:py-10">
@@ -112,34 +155,17 @@ export default function Experience() {
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Experience</h2>
                 <div className="experience-wrap">
                     {experience.map((e, i) =>
-                        <motion.div
-                            key={e.startDate}
-                            className={`experience relative pl-5 lg:pl-10 xl:pl-20 ${i < experience.length - 1 && 'pb-5 lg:pb-10'} ${i === expanded ? 'active' : ''}`}
-                            initial={initialFadeUp}
-                            whileInView={fadeIn(0.5 + i * 0.2)}
-                            viewport={{ once: true, root: scrollRef }}
-                        >
-                            <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-                                <div className="">
-                                    <span className="experience-role block font-medium text-lg">{e.position}</span>
-                                    <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company text-sm">{e.company}</a>
-                                </div>
-                                <div>
-                                    <p className="experience-duration hidden sm:block text-sm">{e.startDate} - {e.endDate}</p>
-                                    <p className="experience-duration hidden sm:block text-xs">{getDateDiff(e.startDate, e.endDate)}</p>
-                                </div>
-                            </div>
-                            <AnimatePresence initial={false}>
-                                <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
-                                    {e.responsibilities.map((r, j) =>
-                                        (i === expanded || j === 0) && <li key={j} className="experience-bullets mb-2 text-justify text-sm">{r} {((i !== expanded && j === 0) || (i === expanded && j === e.responsibilities.length - 1)) && <span className="underline cursor-pointer text-blue-500" onClick={() => setExpanded(i === expanded ? false : i)}>Read {(i !== expanded && j === 0) ? 'More' : 'Less'}</span>}</li>
-                                    )}
-                                </ul>
-                            </AnimatePresence>
-                        </motion.div>
+                        <ExperienceItem
+                            key={i}
+                            e={e}
+                            i={i}
+                            expanded={expanded}
+                            setExpanded={setExpanded}
+                            scrollRef={scrollRef}
+                        />
                     )}
                 </div>
             </div>
         </motion.section>
-    )
+    );
 }
