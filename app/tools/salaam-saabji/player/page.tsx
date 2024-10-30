@@ -3,6 +3,8 @@ import { FormEventHandler, useState, useEffect, useCallback } from "react";
 import { database } from "../firebase";
 import { ref, push, set, get, onChildRemoved } from "firebase/database";
 
+const errorAudio = new Audio('/sound/error.mp3');
+
 const JoinGame = () => {
 	const [state, setState] = useState({
 		gameRoomId: "",
@@ -14,7 +16,7 @@ const JoinGame = () => {
 		playerRefKey: "",
 		shouldRetry: false
 	});
-
+	
 	const handleGameRoomIdSubmit: FormEventHandler<HTMLFormElement> = useCallback(async (e) => {
 		e.preventDefault();
 		const gameRoomRef = ref(database, "games/" + state.gameRoomId);
@@ -57,8 +59,10 @@ const JoinGame = () => {
 					submissionMessage: "Your entry was deleted by the host. Please try again.",
 					shouldRetry: true
 				}));
-				const audio = new Audio('/sound/error.mp3');
-				audio.play();
+				errorAudio.play();
+				if (navigator.vibrate) {
+					navigator.vibrate(500);
+				}
 			});
 			return () => unsubscribe();
 		}
