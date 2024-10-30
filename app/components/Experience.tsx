@@ -145,6 +145,8 @@ const ExperienceItem: React.FC<ExperienceItemProps> = memo(
     (prevProps, nextProps) => prevProps.expanded === nextProps.expanded && prevProps.i === nextProps.i
 );
 
+ExperienceItem.displayName = "ExperienceItem";
+
 export default function Experience() {
     const [expanded, setExpanded] = useState<false | number>(0);
     const scrollRef = useRef<HTMLElement>(null);

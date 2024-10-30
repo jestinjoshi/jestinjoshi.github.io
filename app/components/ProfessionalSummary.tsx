@@ -3,28 +3,41 @@ import useExperience from "../hooks/useExperience";
 import { experience, ExperienceType } from "./Experience";
 import { useDateDiff } from "../hooks/useDateDiff";
 
-const ExperienceChunk = React.memo(({ experienceChunk, ind }: { experienceChunk: ExperienceType[], ind: number }) => (
-    <div key={ind} className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
-        {experienceChunk.map((e, i) => {
-            const dateDiff = useDateDiff(e.startDate, e.endDate);
-            return (
-                <React.Fragment key={e.startDate}>
-                    {ind > 0 && i === 0 && <span className={`curve ${ind % 2 === 0 ? 'reverse' : ''}`}></span>}
-                    <div className={`experience relative flex-auto ${i % 2 === 0 ? 'basis-3/5' : 'basis-2/5'} pr-6`}>
-                        <div className="flex flex-col mb-10">
-                            <span className="text-sm mb-2 whitespace-nowrap">{e.startDate} - {e.endDate}</span>
-                            <span className="text-xs font-semibold">{dateDiff}</span>
-                        </div>
-                        <div className="sd-bottom">
-                            <p className="font-medium whitespace-nowrap">{e.position}</p>
-                            <span className="text-sm">{e.company}</span>
-                        </div>
-                    </div>
-                </React.Fragment>
-            );
-        })}
-    </div>
-));
+// Define the ExperienceItem component within the same file
+const ExperienceItem: React.FC<{ experience: ExperienceType; isFirstInChunk: boolean; isEvenIndex: boolean; }> = ({ experience, isFirstInChunk, isEvenIndex }) => {
+    const dateDiff = useDateDiff(experience.startDate, experience.endDate);
+
+    return (
+        <React.Fragment>
+            {isFirstInChunk && <span className={`curve ${isEvenIndex ? 'reverse' : ''}`}></span>}
+            <div className={`experience relative flex-auto ${isEvenIndex ? 'basis-3/5' : 'basis-2/5'} pr-6`}>
+                <div className="flex flex-col mb-10">
+                    <span className="text-sm mb-2 whitespace-nowrap">{experience.startDate} - {experience.endDate}</span>
+                    <span className="text-xs font-semibold">{dateDiff}</span>
+                </div>
+                <div className="sd-bottom">
+                    <p className="font-medium whitespace-nowrap">{experience.position}</p>
+                    <span className="text-sm">{experience.company}</span>
+                </div>
+            </div>
+        </React.Fragment>
+    );
+};
+
+const ExperienceChunk = React.memo(function ExperienceChunk({ experienceChunk, ind }: { experienceChunk: ExperienceType[], ind: number }) {
+    return (
+        <div key={ind} className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+            {experienceChunk.map((e, i) => (
+                <ExperienceItem
+                    key={e.startDate}
+                    experience={e}
+                    isFirstInChunk={ind > 0 && i === 0}
+                    isEvenIndex={i % 2 === 0}
+                />
+            ))}
+        </div>
+    );
+});
 
 export default function ProfessionalSummary() {
     const yearsOfExperience = useExperience();

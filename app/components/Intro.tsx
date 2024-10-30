@@ -113,7 +113,7 @@ function Greeting() {
         return () => {
             clearTimeout(id)
         };
-    }, [greeting]);
+    }, [greeting, handleTyping]);
 
     return (
         <>{greeting}</>
