@@ -63,9 +63,7 @@ const JoinGame = () => {
 					submissionMessage: "Your entry was deleted by the host. Please try again.",
 					shouldRetry: true
 				}));
-				if (errorAudio) {
-					errorAudio.play();
-				}
+				errorAudio?.play();
 				if (navigator.vibrate) {
 					navigator.vibrate(500);
 				}
