@@ -294,3 +294,7 @@ main {
     left: 20px
   }
 }
+
+.h-svh{
+  height: 100svh;
+}
