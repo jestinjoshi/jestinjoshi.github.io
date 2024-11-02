@@ -103,7 +103,7 @@ const CreateGame = () => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center h-svh py-10 px-4 overflow-auto">
             {step === 1 && (
                 <div className="text-center">
                     <h1 className="text-2xl font-bold mb-4">Choose an Option</h1>

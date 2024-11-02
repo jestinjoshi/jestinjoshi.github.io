@@ -84,7 +84,7 @@ const JoinGame = () => {
 	}, []);
 
 	return (
-		<div className="flex flex-col items-center justify-center h-screen p-10">
+		<div className="flex flex-col items-center justify-center h-svh p-10">
 			{state.step === 1 && (
 				<form onSubmit={handleGameRoomIdSubmit} className="flex flex-col text-center">
 					<h1 className="text-3xl font-bold mb-2">Enter Game Room ID</h1>
