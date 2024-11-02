@@ -182,7 +182,7 @@ const CreateGame = () => {
                 </form>
             )}
             {step === 4 && gameId && (
-                <div className="text-center">
+                <div className="text-center overflow-auto">
                     <h1 className="text-xl mb-2">Theme of the game is:</h1>
                     <p className="text-2xl font-bold mb-6 text-yellow-400">{categoryName}</p>
                     <p className="mb-2">Game Room ID:</p>
