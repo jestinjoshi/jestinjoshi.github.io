@@ -77,8 +77,7 @@ const JoinGame = () => {
 			...prevState,
 			playerWord: "",
 			submissionMessage: "",
-			step: 1,
-			categoryName: "",
+			step: 2,
 			shouldRetry: false
 		}));
 	}, []);
