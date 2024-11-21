@@ -29,7 +29,7 @@ const JoinGame = () => {
 		if (snapshot.exists()) {
 			setState(prevState => ({
 				...prevState,
-				categoryName: snapshot.val().host || "Unknown Category",
+				categoryName: snapshot.val().theme || "Unknown Category",
 				step: 2
 			}));
 		} else {
