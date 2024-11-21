@@ -49,7 +49,7 @@ const JoinGame = () => {
 		setState(prevState => ({
 			...prevState,
 			playerRefKey: newPlayerRef.key || "",
-			submissionMessage: "Your entry has been submitted to the host. If the host determines your entry is invalid, you will need to submit a new word.",
+			submissionMessage: "Your entry has been submitted to the host. If the host finds your entry as invalid/duplicate, you will need to submit a new word.",
 			step: 3
 		}));
 	}, [state.gameRoomId, state.playerName, state.playerWord]);

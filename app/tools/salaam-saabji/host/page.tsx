@@ -107,18 +107,20 @@ const CreateGame = () => {
             {step === 1 && (
                 <div className="text-center">
                     <h1 className="text-2xl font-bold mb-4">Choose an Option</h1>
-                    <button
-                        onClick={() => handleChoice("create")}
-                        className="bg-blue-500 text-white px-4 py-2 rounded mr-6"
-                    >
-                        Create New Game
-                    </button>
-                    <button
-                        onClick={() => handleChoice("join")}
-                        className="bg-green-500 text-white px-4 py-2 rounded"
-                    >
-                        Join Existing Game
-                    </button>
+                    <div className="flex gap-6">
+                        <button
+                            onClick={() => handleChoice("create")}
+                            className="bg-blue-500 text-white px-3 py-2 rounded"
+                        >
+                            Create New Game
+                        </button>
+                        <button
+                            onClick={() => handleChoice("join")}
+                            className="bg-green-500 text-white px-3 py-2 rounded"
+                        >
+                            Join Existing Game
+                        </button>
+                    </div>
                 </div>
             )}
             {step === 2 && (
@@ -182,7 +184,7 @@ const CreateGame = () => {
                 </form>
             )}
             {step === 4 && gameId && (
-                <div className="text-center overflow-auto">
+                <div className="text-center">
                     <h1 className="text-xl mb-2">Theme of the game is:</h1>
                     <p className="text-2xl font-bold mb-6 text-yellow-400">{categoryName}</p>
                     <p className="mb-2">Game Room ID:</p>
