@@ -3,7 +3,6 @@ import useExperience from "../hooks/useExperience";
 import { experience, ExperienceType } from "./Experience";
 import { useDateDiff } from "../hooks/useDateDiff";
 
-// Define the ExperienceItem component within the same file
 const ExperienceItem: React.FC<{ experience: ExperienceType; isFirstInChunk: boolean; isEvenIndex: boolean; }> = ({ experience, isFirstInChunk, isEvenIndex }) => {
     const dateDiff = useDateDiff(experience.startDate, experience.endDate);
 
@@ -24,15 +23,15 @@ const ExperienceItem: React.FC<{ experience: ExperienceType; isFirstInChunk: boo
     );
 };
 
-const ExperienceChunk = React.memo(function ExperienceChunk({ experienceChunk, ind }: { experienceChunk: ExperienceType[], ind: number }) {
+const ExperienceChunk = React.memo(function ExperienceChunk({ experienceChunk, index }: { experienceChunk: ExperienceType[], index: number }) {
     return (
-        <div key={ind} className={`relative flex w-full ${ind % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
+        <div key={index} className={`relative flex w-full ${index % 2 !== 0 ? 'flex-row-reverse' : 'flex-row'}`}>
             {experienceChunk.map((e, i) => (
                 <ExperienceItem
                     key={e.startDate}
                     experience={e}
-                    isFirstInChunk={ind > 0 && i === 0}
-                    isEvenIndex={i % 2 === 0}
+                    isFirstInChunk={index > 0 && i === 0}
+                    isEvenIndex={index % 2 === 0}
                 />
             ))}
         </div>
@@ -65,8 +64,8 @@ export default function ProfessionalSummary() {
                     </div>
                 </div>
                 <div className="experience-wrap gap-y-20 flex flex-wrap justify-end px-20">
-                    {chunksOfExperience.map((experienceChunk, ind) => (
-                        <ExperienceChunk key={ind} experienceChunk={experienceChunk} ind={ind} />
+                    {chunksOfExperience.map((experienceChunk, index) => (
+                        <ExperienceChunk key={index} experienceChunk={experienceChunk} index={index} />
                     ))}
                 </div>
             </div>
