@@ -57,7 +57,7 @@ const CreateGame = () => {
 
         try {
             await set(ref(database, "games/" + newGameId), {
-                host: categoryName,
+                theme: categoryName,
                 players: {}
             });
             setGameId(newGameId);
