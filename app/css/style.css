@@ -246,6 +246,24 @@ main {
   height: 12px;
   border-radius: 50%
 }
+.experience-bullets {
+  interpolate-size: allow-keywords;
+  height: auto;
+  transition-property: display, opacity, height, margin;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+  
+  @starting-style {
+    opacity: 0;
+    height: 0;
+  }
+}
+.experience-bullets.hidden {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+}
+
 #professional-summary .curve {
   display: block;
   width: 100px;

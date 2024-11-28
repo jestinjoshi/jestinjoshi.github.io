@@ -132,13 +132,30 @@ const ExperienceItem: React.FC<ExperienceItemProps> = memo(
                         <p className="experience-duration hidden sm:block text-xs">{dateDiff}</p>
                     </div>
                 </div>
-                <AnimatePresence initial={false}>
-                    <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
-                        {e.responsibilities.map((r, j) =>
-                            (i === expanded || j === 0) && <li key={j} className="experience-bullets mb-2 text-justify text-sm">{r} {((i !== expanded && j === 0) || (i === expanded && j === e.responsibilities.length - 1)) && <span className="underline cursor-pointer text-blue-500" onClick={() => setExpanded(i === expanded ? false : i)}>Read {(i !== expanded && j === 0) ? 'More' : 'Less'}</span>}</li>
-                        )}
-                    </ul>
-                </AnimatePresence>
+
+                <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
+                    {e.responsibilities.map((responsibility, index) => {
+                        const isExpanded = i === expanded;
+                        const isFirstItem = index === 0;
+                        const isLastItem = index === e.responsibilities.length - 1;
+
+                        return (
+                            (
+                                <li key={index} className={`experience-bullets mb-2 text-justify text-sm ${isExpanded || isFirstItem ? '' : 'hidden'}`}>
+                                    {responsibility}&nbsp;
+                                    {((!isExpanded && isFirstItem) || (isExpanded && isLastItem)) && (
+                                        <span
+                                            className="underline cursor-pointer text-blue-500"
+                                            onClick={() => setExpanded(isExpanded ? false : i)}
+                                        >
+                                            Read {!isExpanded ? 'More' : 'Less'}
+                                        </span>
+                                    )}
+                                </li>
+                            )
+                        );
+                    })}
+                </ul>
             </motion.div>
         );
     },
