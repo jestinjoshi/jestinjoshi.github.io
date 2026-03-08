@@ -17,19 +17,19 @@ export type ExperienceType = {
 
 export const experience: ExperienceType[] = [
     {
-        position: "Freelance Web Developer",
-        company: "Upwork",
-        companyWebsite: "https://upwork.com",
-        linkedIn: "https://linkedin.com/company/upwork",
+        position: "Senior Engineer",
+        company: "Altimetrk",
+        companyWebsite: "https://altimetrik.com",
+        linkedIn: "https://linkedin.com/company/altimetrik",
         location: "Toronto",
-        startDate: "Oct 2023",
+        startDate: "Apr 2025",
         endDate: "Present",
         responsibilities: [
-            "Built 7 websites using React, Vue, WordPress, Express.js, JavaScript, HTML and CSS.",
-            "Created detailed project proposals outlining the scope, timelines, deliverables, and cost estimates.",
-            "Kept clients informed of project progress and incorporated feedback.",
-            "Worked with other freelancers or team members as needed.",
-            "Stayed updated with web development trends and continuously improved technical skills.",
+            "Develop and maintain scalable, high-performance and responsive web applications using React, TypeScript, Redux, Node and Express",
+            "Collaborated closely with UI/UX designers and business stakeholders to translate high-fidelity designs into accessible, user-friendly interfaces.",
+            "Made use of Citi's internal design system (ICGDS) to build reusable components and internal tools supporting KYC workflows.",
+            "Actively participated in sprints, code reviews, and technical discussions using Git and Jira, contributing to architecture and implementation decisions.",
+            "Maintained high code quality through unit testing with Jest, focusing on reusable components and automated testing practices."
         ]
     },
     {

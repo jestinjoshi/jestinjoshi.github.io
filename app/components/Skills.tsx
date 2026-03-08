@@ -5,12 +5,12 @@ import { useRef } from "react";
 export default function Skills() {
     const skills = [
         {
-            "skillCategory": "Web Development",
+            "skillCategory": "Full-Stack Development",
             "skills": "Next.js, Node.js, PHP, WordPress, Laravel, RESTful API"
         },
         {
             "skillCategory": "Frontend Development",
-            "skills": "HTML5, CSS3, Bootstrap, JavaScript, ES6, jQuery, React, Redux, Next.js"
+            "skills": "HTML5, CSS3, Bootstrap, JavaScript, TypeScript, React, Redux, Next.js"
         },
         {
             "skillCategory": "UI/UX Design",
