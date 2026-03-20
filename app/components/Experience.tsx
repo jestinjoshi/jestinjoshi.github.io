@@ -17,7 +17,7 @@ export type ExperienceType = {
 
 export const experience: ExperienceType[] = [
     {
-        position: "Senior Engineer",
+        position: "Senior Frontend Engineer",
         company: "Altimetrk",
         companyWebsite: "https://altimetrik.com",
         linkedIn: "https://linkedin.com/company/altimetrik",
@@ -25,11 +25,14 @@ export const experience: ExperienceType[] = [
         startDate: "Apr 2025",
         endDate: "Present",
         responsibilities: [
-            "Develop and maintain scalable, high-performance and responsive web applications using React, TypeScript, Redux, Node and Express",
-            "Collaborated closely with UI/UX designers and business stakeholders to translate high-fidelity designs into accessible, user-friendly interfaces.",
-            "Made use of Citi's internal design system (ICGDS) to build reusable components and internal tools supporting KYC workflows.",
-            "Actively participated in sprints, code reviews, and technical discussions using Git and Jira, contributing to architecture and implementation decisions.",
-            "Maintained high code quality through unit testing with Jest, focusing on reusable components and automated testing practices."
+            "Built a React + TypeScript dashboard used by Citi operations teams to track lifecycle of service requests across financial products.",
+            "Implemented Redux-based state management for complex KYC workflows and leveraged session storage to share state between micro-frontends.",
+            "Led end-to-end development of multiple internal tools, collaborating with product managers, backend developers and designers, making frontend architecture decisions and owning post-deployment support.",
+            "Optimized component rendering and API calls, improving dashboard load time by ~10%.",
+            "Implemented unit tests using Jest and React Testing Library increasing test coverage to 80%+.",
+            "Developed reusable UI components aligned with Citi’s internal design system (ICGDS).",
+            "Conducted code reviews and contributed to frontend architecture discussions across the team.",
+            "Translated Figma designs into production-ready React components while ensuring WCAG accessibility standards."
         ]
     },
     {
@@ -148,7 +151,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = memo(
                 </div>
 
                 <div className="mt-3">
-                    <ul 
+                    <ul
                         id={contentId}
                         className="experience-description list-disc pl-2 md:pl-5"
                         aria-labelledby={triggerId}
