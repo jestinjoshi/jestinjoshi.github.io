@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Header mainRef={mainRef} />
-      <motion.main initial={{ backgroundPositionX: '-150%' }} animate={{ backgroundPositionX: '20%' }} ref={mainRef}>
+      <motion.main id="main-content" initial={{ backgroundPositionX: '-150%' }} animate={{ backgroundPositionX: '20%' }} ref={mainRef}>
         <Intro />
         <Skills />
         <ProfessionalSummary />

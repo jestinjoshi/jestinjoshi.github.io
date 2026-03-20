@@ -126,13 +126,16 @@ const CreateGame = () => {
             {step === 2 && (
                 <form onSubmit={handleCreateGame} className="mb-4 flex-col flex text-center">
                     <h1 className="text-2xl font-bold mb-4">Create a New Game</h1>
+                    <label htmlFor="categoryName" className="mb-2 text-sm font-medium text-left">Category Name</label>
                     <input
+                        id="categoryName"
                         type="text"
                         placeholder="Enter category name"
                         value={categoryName}
                         onChange={(e) => setCategoryName(e.target.value)}
                         className="border p-2 mb-4 text-black"
                         required
+                        aria-label="Category name"
                     />
                     <div className="flex justify-between">
                         <button
@@ -154,7 +157,9 @@ const CreateGame = () => {
             {step === 3 && (
                 <form onSubmit={handleJoinGame} className="mb-4 flex-col flex">
                     <h1 className="text-2xl font-bold mb-4">Join an Existing Game</h1>
+                    <label htmlFor="hostGameRoomId" className="mb-2 text-sm font-medium text-left">Game Room ID</label>
                     <input
+                        id="hostGameRoomId"
                         type="number"
                         max={999999}
                         min={1}
@@ -165,6 +170,7 @@ const CreateGame = () => {
                         onChange={(e) => setGameRoomId(e.target.value)}
                         className="border p-2 mb-4 text-black"
                         required
+                        aria-label="Game Room ID"
                     />
                     <div className="flex justify-between">
                         <button

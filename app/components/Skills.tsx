@@ -37,7 +37,7 @@ export default function Skills() {
                             className="skill-type glass p-6 rounded-lg backdrop-blur"
                             key={skillCategory}
                         >
-                            <p className="skill-type-heading text-xl mb-2">{skillCategory}</p>
+                            <h3 className="skill-type-heading text-xl mb-2">{skillCategory}</h3>
                             <p className="skills">{skills}</p>
                         </motion.div>
                     )}

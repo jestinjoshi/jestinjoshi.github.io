@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useCycle } from "framer-motion";
 import { menu } from "./Header";
 
@@ -8,8 +8,14 @@ type HamburgerProps = {
 
 const HamburgerMenu = (props: HamburgerProps) => {
     const [isOpen, toggleOpen] = useCycle(false, true);
+    const [isMobile, setIsMobile] = useState(false);
     const containerRef = useRef(null);
     const containerHeightRef = useRef(1000);
+    const hamburgerRef = useRef<HTMLDivElement>(null);
+
+    const checkIsMobile = useCallback(() => {
+        setIsMobile(window.innerWidth < 640); // 640px is Tailwind's sm breakpoint
+    }, []);
 
     const setContainerHeight = useCallback(() => {
         if (containerRef.current) {
@@ -22,11 +28,23 @@ const HamburgerMenu = (props: HamburgerProps) => {
         toggleOpen();
     }
 
+    const handleHamburgerKeyDown: React.KeyboardEventHandler<HTMLDivElement> = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleOpen();
+        }
+    }
+
     useEffect(() => {
+        checkIsMobile();
         setContainerHeight();
+        window.addEventListener('resize', checkIsMobile);
         window.addEventListener('resize', setContainerHeight);
-        return () => window.removeEventListener('resize', setContainerHeight);
-    }, [setContainerHeight]);
+        return () => {
+            window.removeEventListener('resize', checkIsMobile);
+            window.removeEventListener('resize', setContainerHeight);
+        };
+    }, [checkIsMobile, setContainerHeight]);
 
     return (
         <>
@@ -37,20 +55,30 @@ const HamburgerMenu = (props: HamburgerProps) => {
                 variants={sidebarVariant}
                 custom={containerHeightRef.current}
                 className="absolute right-0 top-0 z-[1] w-full h-screen text-center flex items-center justify-center hamburger-menu"
+                aria-label="Mobile navigation menu"
             >
                 <motion.ul variants={menuContainerVariant} className="flex flex-col gap-8">
                     {menu.map((m, i) =>
                         <motion.li key={m} className="capitalize" whileTap={{ scale: 0.95 }} variants={menuVariant}>
-                            <a className="hover:opacity-75 text-xl" onClick={handleHamburgerMenuClick} href={`#${m}`}>{m}</a>
+                            <a className="hover:opacity-75 text-xl" onClick={handleHamburgerMenuClick} href={`#${m}`} tabIndex={isMobile ? 0 : -1}>{m}</a>
                         </motion.li>
                     )}
                 </motion.ul>
             </motion.nav>
-            <div className={`hamburger z-[1] sm:hidden ${isOpen ? 'open' : ''}`} onClick={() => toggleOpen()}>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div 
+                ref={hamburgerRef}
+                className={`hamburger z-[1] sm:hidden ${isOpen ? 'open' : ''}`} 
+                onClick={() => toggleOpen()}
+                onKeyDown={handleHamburgerKeyDown}
+                role="button"
+                tabIndex={isMobile ? 0 : -1}
+                aria-label="Toggle navigation menu"
+                aria-expanded={isOpen}
+            >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </div>
         </>
     );

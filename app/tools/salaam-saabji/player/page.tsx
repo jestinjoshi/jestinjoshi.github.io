@@ -88,7 +88,9 @@ const JoinGame = () => {
 				<form onSubmit={handleGameRoomIdSubmit} className="flex flex-col text-center">
 					<h1 className="text-3xl font-bold mb-2">Enter Game Room ID</h1>
 					<p className="mb-4">Please ask the host for the game ID to proceed</p>
+					<label htmlFor="gameRoomId" className="mb-2 text-sm font-medium text-left">Game Room ID</label>
 					<input
+						id="gameRoomId"
 						type="number"
 						min={1}
 						max={999999}
@@ -99,6 +101,7 @@ const JoinGame = () => {
 						onChange={(e) => setState(prevState => ({ ...prevState, gameRoomId: e.target.value }))}
 						className="mb-4 p-2 border border-gray-300 rounded text-black"
 						required
+						aria-label="Game Room ID"
 					/>
 					<button
 						type="submit"
@@ -112,21 +115,27 @@ const JoinGame = () => {
 				<form onSubmit={handlePlayerSubmit} className="flex flex-col text-center">
 					<h1 className="text-xl mb-2">The theme of the game is:</h1>
 					<p className="mb-4 text-3xl text-yellow-500 font-bold">{state.categoryName}</p>
+					<label htmlFor="playerName" className="mb-2 text-sm font-medium text-left">Your Name</label>
 					<input
+						id="playerName"
 						type="text"
 						placeholder="Enter your name"
 						value={state.playerName}
 						onChange={(e) => setState(prevState => ({ ...prevState, playerName: e.target.value }))}
 						className="mb-4 p-2 border border-gray-300 rounded text-black"
 						required
+						aria-label="Player name"
 					/>
+					<label htmlFor="playerWord" className="mb-2 text-sm font-medium text-left">Your Word</label>
 					<input
+						id="playerWord"
 						type="text"
 						placeholder="Enter a word"
 						value={state.playerWord}
 						onChange={(e) => setState(prevState => ({ ...prevState, playerWord: e.target.value }))}
 						className="mb-4 p-2 border border-gray-300 rounded text-black"
 						required
+						aria-label="Player word"
 					/>
 					<button
 						type="submit"

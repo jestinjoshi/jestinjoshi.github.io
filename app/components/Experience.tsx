@@ -113,6 +113,20 @@ type ExperienceItemProps = {
 const ExperienceItem: React.FC<ExperienceItemProps> = memo(
     ({ e, i, expanded, setExpanded, scrollRef }) => {
         const dateDiff = useDateDiff(e.startDate, e.endDate);
+        const isExpanded = i === expanded;
+        const contentId = `experience-content-${i}`;
+        const triggerId = `experience-trigger-${i}`;
+
+        const handleToggle = () => {
+            setExpanded(isExpanded ? false : i);
+        };
+
+        const handleKeyDown = (event: React.KeyboardEvent) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                handleToggle();
+            }
+        };
 
         return (
             <motion.div
@@ -133,29 +147,37 @@ const ExperienceItem: React.FC<ExperienceItemProps> = memo(
                     </div>
                 </div>
 
-                <ul className="experience-description list-disc pl-2 md:pl-5 mt-3">
-                    {e.responsibilities.map((responsibility, index) => {
-                        const isExpanded = i === expanded;
-                        const isFirstItem = index === 0;
-                        const isLastItem = index === e.responsibilities.length - 1;
+                <div className="mt-3">
+                    <ul 
+                        id={contentId}
+                        className="experience-description list-disc pl-2 md:pl-5"
+                        aria-labelledby={triggerId}
+                    >
+                        {e.responsibilities.map((responsibility, index) => {
+                            const isFirstItem = index === 0;
+                            const isLastItem = index === e.responsibilities.length - 1;
 
-                        return (
-                            (
+                            return (
                                 <li key={index} className={`experience-bullets mb-2 text-justify text-sm ${isExpanded || isFirstItem ? '' : 'hidden'}`}>
                                     {responsibility}&nbsp;
                                     {((!isExpanded && isFirstItem) || (isExpanded && isLastItem)) && (
-                                        <span
-                                            className="underline cursor-pointer text-blue-500"
-                                            onClick={() => setExpanded(isExpanded ? false : i)}
+                                        <button
+                                            id={triggerId}
+                                            className="underline cursor-pointer text-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-sm"
+                                            onClick={handleToggle}
+                                            onKeyDown={handleKeyDown}
+                                            aria-expanded={isExpanded}
+                                            aria-controls={contentId}
+                                            aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${e.position} responsibilities at ${e.company}`}
                                         >
                                             Read {!isExpanded ? 'More' : 'Less'}
-                                        </span>
+                                        </button>
                                     )}
                                 </li>
-                            )
-                        );
-                    })}
-                </ul>
+                            );
+                        })}
+                    </ul>
+                </div>
             </motion.div>
         );
     },

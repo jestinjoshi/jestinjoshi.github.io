@@ -61,10 +61,18 @@ export default function Portfolio() {
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Portfolio</h2>
                 <div className="portfolio-wrap grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-10">
                     {portfolio.map((e, i) =>
-                        <motion.div key={e.id} onClick={() => handlePortfolioClick(i)} className="portfolio glass rounded-lg p-6" initial={initialFadeUp} whileInView={fadeIn(i * 0.2)} viewport={{ once: true }}>
+                        <motion.button 
+                            key={e.id} 
+                            onClick={() => handlePortfolioClick(i)} 
+                            className="portfolio glass rounded-lg p-6 text-left" 
+                            initial={initialFadeUp} 
+                            whileInView={fadeIn(i * 0.2)} 
+                            viewport={{ once: true }}
+                            aria-label={`${e.name}: ${e.description}`}
+                        >
                             <div className="portfolio-title">
                                 {e.link ?
-                                    <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-xl mb-4 inline-block link-underline">
+                                    <a href={e.link} target="_blank" rel="noopener noreferrer" className="hover:underline text-xl mb-4 inline-block link-underline" onClick={(event) => event.stopPropagation()}>
                                         <p className="project-name">{e.name}</p>
                                     </a>
                                     :
@@ -72,7 +80,7 @@ export default function Portfolio() {
                                 }
                                 <p className="portfolio-description">{e.description}</p>
                             </div>
-                        </motion.div>
+                        </motion.button>
                     )}
                 </div>
             </div>

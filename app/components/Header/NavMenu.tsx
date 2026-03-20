@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { MouseEventHandler } from "react";
     
 const NavMenu = ({ menu, handleHashClick }: { menu: string[], handleHashClick: MouseEventHandler }) => (
-    <nav className="header-menu hidden sm:block">
+    <nav className="header-menu hidden sm:block" aria-label="Main Navigation">
         <motion.ul animate="hidden" className="flex gap-6">
             {menu.map((m, i) =>
                 <motion.li key={m} className="capitalize" animate={fadeIn(0.5 + i * 0.3)} initial={initialFadeDown}>

@@ -32,20 +32,29 @@ export default function Contact() {
 
     const scrollRef = useRef(null);
 
-    return (
+return (
         <motion.section ref={scrollRef} initial={initialFadeUp} whileInView={fadeIn(0.5)} viewport={{ once: true }} id="contact" className="py-5 sm:py-10">
             <div className="custom-container px-5 mx-auto">
                 <h2 className="text-3xl section-heading mb-10 gradient-text">Contact</h2>
                 <div className="contact-wrap">
                     <AnimatePresence initial={false}>
                         {emailResponse.length ?
-                            <motion.div initial={initialFadeUp} animate={fadeIn()}>{emailResponse}</motion.div>
+                            <motion.div initial={initialFadeUp} animate={fadeIn()} role="status" aria-live="polite">{emailResponse}</motion.div>
                             :
-                            <motion.form exit={{ height: 0 }} initial={{ ...initialFadeUp, height: 'auto' }} animate={fadeIn()} onSubmit={handleSubmit} method="dialog" className='flex gap-5 lg:gap-10 flex-wrap'>
-                                <motion.input autoComplete='off' initial={initialFadeUp} whileInView={fadeIn(0.7)} viewport={{ once: true, root: scrollRef }} required type="text" name="name" id="name" placeholder="Name" aria-label="Name" className='flex-1 p-4 rounded-md glass' />
-                                <motion.input autoComplete='off' initial={initialFadeUp} whileInView={fadeIn(0.9)} viewport={{ once: true, root: scrollRef }} required type="email" name="email" id="email" placeholder="Email" aria-label="Email" className='flex-1 p-4 rounded-md glass' />
-                                <motion.textarea initial={initialFadeUp} whileInView={fadeIn(1.1)} viewport={{ once: true, root: scrollRef }} required rows={4} name="message" id="message" placeholder="Message" aria-label="Message" className='w-full p-4 rounded-md glass resize-none' />
-                                <motion.input initial={initialFadeUp} whileInView={fadeIn(1.3)} viewport={{ once: true, root: scrollRef }} type="submit" value="Send" className='send py-3 px-10 text-white rounded-md cursor-pointer glass glass-hover' />
+                            <motion.form exit={{ height: 0 }} initial={{ ...initialFadeUp, height: 'auto' }} animate={fadeIn()} onSubmit={handleSubmit} method="dialog" className='flex gap-5 lg:gap-10 flex-col sm:flex-wrap'>
+                                <div className="flex-1 flex flex-col">
+                                    <label htmlFor="name" className="mb-2 text-sm font-medium">Name</label>
+                                    <motion.input autoComplete='off' initial={initialFadeUp} whileInView={fadeIn(0.7)} viewport={{ once: true, root: scrollRef }} required type="text" name="name" id="name" placeholder="Your name" aria-label="Name" className='p-4 rounded-md glass' />
+                                </div>
+                                <div className="flex-1 flex flex-col">
+                                    <label htmlFor="email" className="mb-2 text-sm font-medium">Email</label>
+                                    <motion.input autoComplete='off' initial={initialFadeUp} whileInView={fadeIn(0.9)} viewport={{ once: true, root: scrollRef }} required type="email" name="email" id="email" placeholder="Your email" aria-label="Email" className='p-4 rounded-md glass' />
+                                </div>
+                                <div className="w-full flex flex-col">
+                                    <label htmlFor="message" className="mb-2 text-sm font-medium">Message</label>
+                                    <motion.textarea initial={initialFadeUp} whileInView={fadeIn(1.1)} viewport={{ once: true, root: scrollRef }} required rows={4} name="message" id="message" placeholder="Your message" aria-label="Message" className='p-4 rounded-md glass resize-none' />
+                                </div>
+                                <motion.input initial={initialFadeUp} whileInView={fadeIn(1.3)} viewport={{ once: true, root: scrollRef }} type="submit" value="Send" className='send py-3 px-10 text-white rounded-md cursor-pointer glass glass-hover self-start' />
                             </motion.form>
                         }
                     </AnimatePresence>

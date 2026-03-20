@@ -80,7 +80,10 @@ export default function RootLayout({
         </Script>
         <Script id='structuredData' type='application/ld+json' dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-blue-600 focus:text-white">Skip to main content</a>
+        {children}
+      </body>
     </html>
   )
 }
