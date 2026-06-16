@@ -145,7 +145,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = memo(
                         <a href={e.companyWebsite} target="_blank" rel="noopener noreferrer" className="experience-company text-sm">{e.company}</a>
                     </div>
                     <div>
-                        <p className="experience-duration hidden sm:block text-sm">{e.startDate} - {e.endDate}</p>
+                        <p className="experience-duration hidden sm:block text-sm"><time dateTime={e.startDate}>{e.startDate}</time> - <time dateTime={e.endDate}>{e.endDate}</time></p>
                         <p className="experience-duration hidden sm:block text-xs">{dateDiff}</p>
                     </div>
                 </div>

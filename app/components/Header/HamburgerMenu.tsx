@@ -54,7 +54,7 @@ const HamburgerMenu = (props: HamburgerProps) => {
                 animate={isOpen ? "open" : "closed"}
                 variants={sidebarVariant}
                 custom={containerHeightRef.current}
-                className="absolute right-0 top-0 z-[1] w-full h-screen text-center flex items-center justify-center hamburger-menu"
+                className="sm:hidden absolute right-0 top-0 z-[1] w-full h-screen text-center flex items-center justify-center hamburger-menu"
                 aria-label="Mobile navigation menu"
             >
                 <motion.ul variants={menuContainerVariant} className="flex flex-col gap-8">

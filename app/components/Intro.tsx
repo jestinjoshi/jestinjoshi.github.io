@@ -29,7 +29,7 @@ export default function Intro() {
             <div className="custom-container px-5 mx-auto">
                 <div className="flex justify-center gap-5 sm:gap-20 flex-wrap items-center">
                     <motion.div initial={{ ...initialFadeUp }} animate={{ ...fadeIn(0.5) }} className="avatar-wrap relative w-full lg:w-[300px]">
-                        <Image priority className="relative z-10 rounded-full mx-auto grayscale" alt="Avatar" width={300} height={300} src="/img/avatar.webp"></Image>
+                        <Image priority className="relative z-10 rounded-full mx-auto grayscale" alt="Jestin's photo" width={300} height={300} src="/img/avatar.webp"></Image>
                         <div id="shape"></div>
                     </motion.div>
                     <div className="about flex-1 text-center lg:text-left">
@@ -49,7 +49,7 @@ export default function Intro() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
                                 <span className="glass absolute w-full h-full rounded-full top-0 left-0 z-[-1] group-hover:scale-100 scale-0 transition-all"></span>
                             </a>
-                            <a className="px-2 text-sm md:text-base md:px-4 py-3 rounded-lg ml-0 text-white flex items-center font-semibold resume glass glass-hover group overflow-hidden hover:pl-12 transition-all" href="/resume.pdf" target="_blank" rel="noreferrer" aria-label="Resume (opens in a new window)">
+                            <a className="px-2 text-sm md:text-base md:px-4 py-3 rounded-lg ml-0 text-white flex items-center font-semibold resume glass glass-hover group overflow-hidden hover:pl-12 transition-all" href="/resume.pdf" target="_blank" rel="noreferrer" aria-label="Resume (opens PDF in a new window)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-download absolute group-hover:start-4 -start-full transition-all"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                                 Resume
                             </a>
